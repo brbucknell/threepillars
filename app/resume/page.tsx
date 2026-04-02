@@ -76,10 +76,12 @@ function ResumeMockup() {
           <p>Peterborough, ON</p>
         </div>
 
-        <SectionTitle></SectionTitle>
+        <SectionTitle>LANGUAGES</SectionTitle>
         <div className="space-y-3 text-sm">
           {[
-           
+            ["English", 95],
+            ["French", 50],
+            ["Spanish", 30],
           ].map(([label, width]) => (
             <div key={label}>
               <div className="mb-1 text-zinc-600">{label}</div>
