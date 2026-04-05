@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Project = {
   id: number;
@@ -20,9 +21,10 @@ const projects: Project[] = [
     title: "Housing vs Income",
     category: "Data Analysis",
     image: "/project1.jpg",
-    summary: "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
+    summary:
+      "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
     article:
-      "This project explores Canadian affordability trends using publicly available datasets. It compares income growth with housing cost growth and presents the findings through clear visual storytelling. The goal is to show both technical skill and social relevance.",
+      "This project explores Canadian affordability trends using publicly available datasets. It compares income growth with housing cost growth and presents the findings through clear visual storytelling.",
     code: `import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -40,9 +42,10 @@ plt.show()`,
     title: "Ethical Visualization Checklist",
     category: "Writing",
     image: "/project2.jpg",
-    summary: "A practical guide for building clear, honest, human-centered charts.",
+    summary:
+      "A practical guide for building clear, honest, human-centered charts.",
     article:
-      "This piece explains how data visuals can mislead and how to avoid that. It focuses on clarity, fairness, labeling, and audience understanding. It is meant to show communication skill as well as ethical thinking.",
+      "This piece explains how data visuals can mislead and how to avoid that. It focuses on clarity, fairness, labeling, and audience understanding.",
     code: `const checklist = [
   "Clear labels",
   "No misleading scales",
@@ -60,7 +63,7 @@ console.log(checklist);`,
     image: "/project3.jpg",
     summary: "A custom portfolio site built with Next.js and Tailwind CSS.",
     article:
-      "This project demonstrates front-end development skills, responsive design, and personal branding. The design focuses on clarity, professional tone, and strong project presentation.",
+      "This project demonstrates front-end development skills, responsive design, and personal branding.",
     code: `export default function Home() {
   return (
     <main className="min-h-screen">
@@ -78,7 +81,7 @@ console.log(checklist);`,
     image: "/project4.jpg",
     summary: "A project showing applied regression analysis and interpretation.",
     article:
-      "This case study demonstrates how regression can be used to examine real-world patterns. It focuses not just on the model, but on interpretation, assumptions, and communication of results.",
+      "This case study demonstrates how regression can be used to examine real-world patterns.",
     code: `import statsmodels.api as sm
 
 X = df[["x1", "x2"]]
@@ -94,9 +97,10 @@ print(model.summary())`,
     title: "Reproducible Workflow",
     category: "Process",
     image: "/project5.jpg",
-    summary: "A template for reproducible analysis with clean project structure.",
+    summary:
+      "A template for reproducible analysis with clean project structure.",
     article:
-      "This project highlights workflow discipline: structured folders, reusable code, version control, and documented steps. It is aimed at showing reliability and professionalism.",
+      "This project highlights workflow discipline: structured folders, reusable code, version control, and documented steps.",
     code: `project/
   data/
   notebooks/
@@ -104,6 +108,25 @@ print(model.summary())`,
   outputs/
   README.md`,
     github: "#",
+  },
+  {
+    id: 6,
+    title: "Research Notes",
+    category: "Article",
+    image: "/project6.jpg",
+    summary:
+      "A writing-focused section for essays, notes, and long-form project reflections.",
+    article:
+      "This section is for deeper written work: project reflections, research notes, and article-style explanations that support the portfolio.",
+    code: `# Research outline
+
+1. Problem
+2. Data
+3. Method
+4. Findings
+5. Reflection`,
+    github: "#",
+    demo: "#",
   },
 ];
 
@@ -113,6 +136,29 @@ export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
       <div className="mx-auto max-w-7xl">
+        <nav className="mb-8 flex justify-center">
+          <div className="flex flex-wrap items-center gap-6 rounded-full border border-black/10 bg-white/80 px-6 py-3 shadow-md backdrop-blur-sm">
+            <Link
+              href="/resume"
+              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
+            >
+              Resume
+            </Link>
+            <Link
+              href="/portfolio"
+              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
+            >
+              Portfolio
+            </Link>
+            <Link
+              href="/about"
+              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
+            >
+              About
+            </Link>
+          </div>
+        </nav>
+
         <div className="text-center">
           <h1
             className="text-5xl font-black text-black sm:text-6xl"
@@ -142,7 +188,7 @@ export default function PortfolioPage() {
               </h2>
 
               <p className="mt-2 text-sm text-zinc-600">
-                Data Science, software development, technical analysis, and
+                Data science, software development, technical analysis, and
                 writing focused on meaningful real-world problems.
               </p>
 
@@ -209,14 +255,18 @@ export default function PortfolioPage() {
                   Expanded project preview
                 </div>
 
-                <h3 className="text-lg font-semibold text-black">Article Preview</h3>
+                <h3 className="text-lg font-semibold text-black">
+                  Article Preview
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-zinc-700">
                   {selectedProject.article}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-black">Code Preview</h3>
+                <h3 className="text-lg font-semibold text-black">
+                  Code Preview
+                </h3>
                 <pre className="mt-3 overflow-x-auto bg-zinc-950 p-4 text-sm text-zinc-100">
                   <code>{selectedProject.code}</code>
                 </pre>
