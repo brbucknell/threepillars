@@ -129,7 +129,14 @@ print(model.summary())`,
     demo: "#",
   },
 ];
-
+ <div className="text-center">
+          <h1
+            className="text-5xl font-black text-black sm:text-6xl"
+            style={{ fontFamily: "serif" }}
+          >
+            Portfolio
+          </h1>
+                </div>
 export default function PortfolioPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -159,20 +166,7 @@ export default function PortfolioPage() {
           </div>
         </nav>
 
-        <div className="text-center">
-          <h1
-            className="text-5xl font-black text-black sm:text-6xl"
-            style={{ fontFamily: "serif" }}
-          >
-            Portfolio
-          </h1>
-          <p
-            className="mt-2 text-2xl font-bold text-black"
-            style={{ fontFamily: "serif" }}
-          >
-            Menu
-          </p>
-        </div>
+       
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
