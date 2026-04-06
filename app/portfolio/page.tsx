@@ -1,297 +1,169 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
-type Project = {
-  id: number;
-  title: string;
-  category: string;
-  image: string;
-  summary: string;
-  article: string;
-  code: string;
-  github?: string;
-  demo?: string;
-};
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Housing vs Income",
-    category: "Data Analysis",
-    image: "/project1.jpg",
-    summary:
-      "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
-    article:
-      "This project explores Canadian affordability trends using publicly available datasets. It compares income growth with housing cost growth and presents the findings through clear visual storytelling.",
-    code: `import pandas as pd
-import matplotlib.pyplot as plt
-
-df = pd.read_csv("housing_income.csv")
-
-plt.plot(df["year"], df["income"], label="Income")
-plt.plot(df["year"], df["housing"], label="Housing")
-plt.legend()
-plt.show()`,
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: 2,
-    title: "Ethical Visualization Checklist",
-    category: "Writing",
-    image: "/project2.jpg",
-    summary:
-      "A practical guide for building clear, honest, human-centered charts.",
-    article:
-      "This piece explains how data visuals can mislead and how to avoid that. It focuses on clarity, fairness, labeling, and audience understanding.",
-    code: `const checklist = [
-  "Clear labels",
-  "No misleading scales",
-  "Accessible colors",
-  "Relevant context"
-];
-
-console.log(checklist);`,
-    github: "#",
-  },
-  {
-    id: 3,
-    title: "Portfolio Website",
-    category: "Development",
-    image: "/project3.jpg",
-    summary: "A custom portfolio site built with Next.js and Tailwind CSS.",
-    article:
-      "This project demonstrates front-end development skills, responsive design, and personal branding.",
-    code: `export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <h1>My Portfolio</h1>
-    </main>
-  );
-}`,
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: 4,
-    title: "Regression Case Study",
-    category: "Statistics",
-    image: "/project4.jpg",
-    summary: "A project showing applied regression analysis and interpretation.",
-    article:
-      "This case study demonstrates how regression can be used to examine real-world patterns.",
-    code: `import statsmodels.api as sm
-
-X = df[["x1", "x2"]]
-y = df["y"]
-
-X = sm.add_constant(X)
-model = sm.OLS(y, X).fit()
-print(model.summary())`,
-    github: "#",
-  },
-  {
-    id: 5,
-    title: "Reproducible Workflow",
-    category: "Process",
-    image: "/project5.jpg",
-    summary:
-      "A template for reproducible analysis with clean project structure.",
-    article:
-      "This project highlights workflow discipline: structured folders, reusable code, version control, and documented steps.",
-    code: `project/
-  data/
-  notebooks/
-  src/
-  outputs/
-  README.md`,
-    github: "#",
-  },
-  {
-    id: 6,
-    title: "Research Notes",
-    category: "Article",
-    image: "/project6.jpg",
-    summary:
-      "A writing-focused section for essays, notes, and long-form project reflections.",
-    article:
-      "This section is for deeper written work: project reflections, research notes, and article-style explanations that support the portfolio.",
-    code: `# Research outline
-
-1. Problem
-2. Data
-3. Method
-4. Findings
-5. Reflection`,
-    github: "#",
-    demo: "#",
-  },
-];
- <div className="text-center">
-          <h1
-            className="text-5xl font-black text-black sm:text-6xl"
-            style={{ fontFamily: "serif" }}
-          >
-            Portfolio
-          </h1>
-                </div>
-export default function PortfolioPage() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+export default function ResumePage() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
-      <div className="mx-auto max-w-7xl">
-        <nav className="mb-8 flex justify-center">
-          <div className="flex flex-wrap items-center gap-6 rounded-full border border-black/10 bg-white/80 px-6 py-3 shadow-md backdrop-blur-sm">
-            <Link
-              href="/resume"
-              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
-            >
-              Resume
-            </Link>
-            <Link
-              href="/portfolio"
-              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-semibold tracking-wide text-black transition hover:opacity-60"
-            >
-              About
-            </Link>
-          </div>
-        </nav>
-
-       
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
-          <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
-            <div className="flex h-full flex-col">
-              <div className="mb-6 h-16 w-16 bg-zinc-200" />
-
-              <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
-                Portfolio
-              </p>
-
-              <h2 className="mt-2 text-4xl font-extrabold text-black">
-                Bryan Bucknell
-              </h2>
-
-              <p className="mt-2 text-sm text-zinc-600">
-                Data science, software development, technical analysis, and
-                writing focused on meaningful real-world problems.
-              </p>
-
-              <div className="mt-8 flex-1 bg-zinc-100 p-4">
-                <div className="flex h-full min-h-[320px] items-center justify-center bg-zinc-200 text-sm text-zinc-500">
-                  Main preview image
-                </div>
+    <main className="min-h-screen bg-gradient-to-br from-zinc-200 via-zinc-300 to-zinc-400 flex items-center justify-center p-6">
+      <div className="flex flex-col items-center gap-4">
+        <button
+          onClick={() => setOpen(true)}
+          className="group relative transition-transform duration-300 hover:scale-[1.02]"
+        >
+          <div className="relative w-[420px] sm:w-[500px] md:w-[600px]">
+            <div className="absolute inset-0 translate-y-6 scale-95 rounded-sm bg-black/20 blur-2xl" />
+            <div className="relative bg-white shadow-[0_30px_60px_rgba(0,0,0,0.28)] ring-1 ring-black/10 overflow-hidden">
+              <div className="aspect-[8.5/11] w-full">
+                <ResumeMockup />
               </div>
             </div>
           </div>
+        </button>
 
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {projects.map((project) => (
-              <button
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className="rounded-sm bg-white p-4 text-left shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition hover:-translate-y-1"
-              >
-                <div className="mb-4 flex h-36 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
-                  Preview image
-                </div>
-
-                <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-                  {project.category}
-                </p>
-
-                <h3 className="mt-2 text-xl font-bold text-black">
-                  {project.title}
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  {project.summary}
-                </p>
-              </button>
-            ))}
-          </div>
-        </div>
+        <p className="text-sm text-zinc-700/80">Click resume to enlarge</p>
       </div>
 
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-8">
-          <div className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-sm bg-white p-6 shadow-2xl">
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-500">
-                  {selectedProject.category}
-                </p>
-                <h2 className="mt-2 text-3xl font-bold text-black">
-                  {selectedProject.title}
-                </h2>
-              </div>
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="relative max-h-[95vh] w-full max-w-5xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute -top-12 right-0 bg-white px-3 py-1 text-sm shadow"
+            >
+              Close
+            </button>
 
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="rounded border border-zinc-300 px-3 py-1 text-sm text-zinc-700 hover:bg-zinc-100"
-              >
-                Close
-              </button>
-            </div>
-
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div>
-                <div className="mb-4 flex h-64 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
-                  Expanded project preview
-                </div>
-
-                <h3 className="text-lg font-semibold text-black">
-                  Article Preview
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-700">
-                  {selectedProject.article}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-black">
-                  Code Preview
-                </h3>
-                <pre className="mt-3 overflow-x-auto bg-zinc-950 p-4 text-sm text-zinc-100">
-                  <code>{selectedProject.code}</code>
-                </pre>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href={selectedProject.github || "#"}
-                    className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
-                  >
-                    View Code
-                  </a>
-
-                  <a
-                    href={selectedProject.demo || "#"}
-                    className="rounded bg-black px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-                  >
-                    Live Preview
-                  </a>
-
-                  <a
-                    href="#"
-                    className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
-                  >
-                    Read Article
-                  </a>
-                </div>
+            <div className="mx-auto w-full max-w-[900px] bg-white shadow-[0_40px_100px_rgba(0,0,0,0.45)] overflow-hidden">
+              <div className="aspect-[8.5/11] w-full">
+                <ResumeMockup />
               </div>
             </div>
           </div>
         </div>
       )}
     </main>
+  );
+}
+
+function ResumeMockup() {
+  return (
+    <div className="grid h-full w-full grid-cols-[30%_70%] text-sm text-zinc-700">
+      {/* LEFT */}
+      <aside className="bg-[#f3f0ed] px-5 py-6">
+        <div className="flex flex-col items-center mb-4">
+          <div className="h-20 w-20 rounded-full border-4 border-[#d68f7c] bg-zinc-300" />
+        </div>
+
+        <SectionTitle>PROFILE</SectionTitle>
+        <p className="leading-relaxed text-sm text-zinc-600">
+          Senior technical support professional with extensive experience in IT,
+          telecommunications, troubleshooting, and data-driven problem solving.
+        </p>
+
+        <SectionTitle>CONTACT</SectionTitle>
+        <div className="space-y-1 text-sm text-zinc-600">
+          <p>+1 555 555 5555</p>
+          <p>email@email.com</p>
+          <p>linkedin.com/in/yourname</p>
+          <p>Peterborough, ON</p>
+        </div>
+      </aside>
+
+      {/* RIGHT */}
+      <section>
+        <div className="bg-[#2d2928] px-6 py-6 text-white">
+          <h1 className="text-3xl font-semibold tracking-widest">
+            BRYAN BUCKNELL
+          </h1>
+          <p className="mt-2 text-sm uppercase tracking-wider text-white/70">
+            Technical Support • Data Science • IT Specialist
+          </p>
+        </div>
+
+        <div className="px-6 py-6">
+          <ResumeSection title="EDUCATION">
+            <ResumeItem
+              title="MSc Data Science"
+              place="University of Colorado Boulder"
+              years="Recent"
+              text="Advanced training in machine learning, statistics, and data analysis."
+            />
+          </ResumeSection>
+
+          <ResumeSection title="EXPERIENCE">
+            <ResumeItem
+              title="Technical Communications Analyst"
+              place="Bell Canada"
+              years="Multi-year"
+              text="Provided high-level support, troubleshooting, and communication for complex telecom systems."
+            />
+            <ResumeItem
+              title="Independent IT Specialist"
+              place="Freelance"
+              years="Various"
+              text="Worked across hardware, software, networking, and web development."
+            />
+          </ResumeSection>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="mt-6 mb-2 text-base font-bold tracking-widest text-[#d68f7c]">
+      {children}
+    </h2>
+  );
+}
+
+function ResumeSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="mb-6">
+      <h2 className="mb-3 border-b border-[#e7d6cf] pb-1 text-base font-bold tracking-widest text-[#d68f7c]">
+        {title}
+      </h2>
+      <div className="space-y-4">{children}</div>
+    </div>
+  );
+}
+
+function ResumeItem({
+  title,
+  place,
+  years,
+  text,
+}: {
+  title: string;
+  place: string;
+  years: string;
+  text: string;
+}) {
+  return (
+    <div>
+      <div className="mb-1 flex justify-between">
+        <div>
+          <h3 className="text-lg font-semibold text-zinc-800">{title}</h3>
+          <p className="text-sm text-zinc-500">{place}</p>
+        </div>
+        <span className="text-xs text-zinc-500">{years}</span>
+      </div>
+      <p className="text-sm leading-relaxed text-zinc-600">{text}</p>
+    </div>
   );
 }
