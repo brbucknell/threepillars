@@ -7,22 +7,17 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Three Pillars",
-  description: "A Data Humanist Portfolio",
-  icons: {
-    icon: "/favicon.png",
-  },
-};
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "",
+  title: "Three Pillars",
   description: "",
+   icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
