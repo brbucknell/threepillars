@@ -7,6 +7,14 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "Three Pillars",
+  description: "A Data Humanist Portfolio",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
