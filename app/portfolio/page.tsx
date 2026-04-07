@@ -131,7 +131,14 @@ export default function PortfolioPage() {
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
             <div className="flex h-full flex-col">
-              <div className="mb-6 h-16 w-16 bg-zinc-200" />
+              <div className="mb-6 h-50 w-50 relative overflow-hidden rounded-xl">
+  <Image
+    src="/portfolioself.png"
+    alt="Bryan Bucknell"
+    fill
+    className="object-cover"
+  />
+</div>
 
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                 Portfolio
