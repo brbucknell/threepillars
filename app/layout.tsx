@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Three Pillars",
   description: "",
    icons: {
-    icon: "/favicon.png",
+    icon: "/favico.png",
   },
 };
 
