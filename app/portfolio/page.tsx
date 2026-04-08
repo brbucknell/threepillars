@@ -115,6 +115,23 @@ export default function PortfolioPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
+
+    <header className="w-full bg-white shadow-sm mb-6">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    
+    <div className="text-lg font-bold text-black">
+      Bryan Bucknell
+    </div>
+
+    <nav className="flex gap-6 text-sm font-medium text-zinc-700">
+      <a href="/" className="hover:text-black">Home</a>
+      <a href="/portfolio" className="hover:text-black">Portfolio</a>
+      <a href="/resume" className="hover:text-black">Resume</a>
+      <a href="/about" className="hover:text-black">About</a>
+    </nav>
+
+  </div>
+</header>
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
