@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import Image from "next/image";
+
 export default function ResumePage() {
   const [open, setOpen] = useState(false);
 
