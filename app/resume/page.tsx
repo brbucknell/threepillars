@@ -59,7 +59,7 @@ function ResumeMockup() {
       {/* LEFT */}
       <aside className="bg-[#f3f0ed] px-5 py-6">
         <div className="flex flex-col items-center mb-4">
-         <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white shadow-md">
+  <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white shadow-md">
     <Image
       src="/portfolioself.png"
       alt="Bryan Bucknell"
@@ -67,7 +67,7 @@ function ResumeMockup() {
       className="object-cover"
     />
   </div>
-        </div>
+</div>
 
         <SectionTitle>PROFILE</SectionTitle>
         <p className="leading-relaxed text-sm text-zinc-600">
