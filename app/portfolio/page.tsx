@@ -118,23 +118,7 @@ export default function PortfolioPage() {
     <>
       <header className="w-full bg-white shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="text-lg font-bold text-black">Bryan Bucknell</div>
-
-          <nav className="flex gap-6 text-sm font-medium text-zinc-700">
-            <a href="/" className="hover:text-black">
-              Home
-            </a>
-            <a href="/portfolio" className="text-black">
-              Portfolio
-            </a>
-            <a href="/resume" className="hover:text-black">
-              Resume
-            </a>
-            <a href="/about" className="hover:text-black">
-              About
-            </a>
-          </nav>
-        </div>
+          
       </header>
 
       <div className="w-full flex justify-center mt-4">
