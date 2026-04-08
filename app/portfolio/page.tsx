@@ -116,11 +116,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <header className="w-full bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          
-      </header>
-
+      
       <div className="w-full flex justify-center mt-4">
   <div className="flex gap-12 rounded-full bg-gradient-to-r from-blue-200/60 to-teal-200/60 px-12 py-4 shadow-md backdrop-blur-md border border-white/40">
     
