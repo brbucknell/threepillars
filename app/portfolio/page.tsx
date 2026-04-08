@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import Image from "next/image";
 
 type Project = {
@@ -22,7 +21,8 @@ const projects: Project[] = [
     title: "Housing vs Income",
     category: "Data Analysis",
     image: "/project1.jpg",
-    summary: "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
+    summary:
+      "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
     article:
       "This project explores Canadian affordability trends using publicly available datasets. It compares income growth with housing cost growth and presents the findings through clear visual storytelling. The goal is to show both technical skill and social relevance.",
     code: `import pandas as pd
@@ -42,7 +42,8 @@ plt.show()`,
     title: "Ethical Visualization Checklist",
     category: "Writing",
     image: "/project2.jpg",
-    summary: "A practical guide for building clear, honest, human-centered charts.",
+    summary:
+      "A practical guide for building clear, honest, human-centered charts.",
     article:
       "This piece explains how data visuals can mislead and how to avoid that. It focuses on clarity, fairness, labeling, and audience understanding. It is meant to show communication skill as well as ethical thinking.",
     code: `const checklist = [
@@ -96,7 +97,8 @@ print(model.summary())`,
     title: "Reproducible Workflow",
     category: "Process",
     image: "/project5.jpg",
-    summary: "A template for reproducible analysis with clean project structure.",
+    summary:
+      "A template for reproducible analysis with clean project structure.",
     article:
       "This project highlights workflow discipline: structured folders, reusable code, version control, and documented steps. It is aimed at showing reliability and professionalism.",
     code: `project/
@@ -132,20 +134,7 @@ export default function PortfolioPage() {
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
-            <div className="flex h-full flex-col">
-             <div className="mt-8 bg-zinc-100 p-4">
-  <div className="relative h-[400px] w-full overflow-hidden bg-zinc-200">
-    <Image
-      src="/female-data.png"
-      alt="Female figure emerging from data"
-      fill
-      className="object-contain"
-      priority
-    />
-  </div>
-</div>
-</div>
-
+            <div className="flex flex-col">
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
                 Portfolio
               </p>
@@ -159,23 +148,16 @@ export default function PortfolioPage() {
                 writing focused on meaningful real-world problems.
               </p>
 
-              <div className="mt-8 flex-1 bg-zinc-100 p-4">
-                <div className="mt-8 bg-zinc-100 p-4">
-  <div className="relative h-[520px] w-full overflow-hidden bg-zinc-200">
-    <Image
-      src="/female-data.png"
-      alt="Female figure emerging from data"
-      fill
-      className="object-contain"
-      priority
-    />
-  </div>
-</div>
-              
-                <div className="flex h-full min-h-[320px] items-center justify-center bg-zinc-200 text-sm text-zinc-500">
-        
-                             </div>
-                
+              <div className="mt-8 bg-zinc-100 p-4">
+                <div className="relative h-[520px] w-full overflow-hidden bg-zinc-200">
+                  <Image
+                    src="/female-data.png"
+                    alt="Female figure emerging from data"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -235,14 +217,18 @@ export default function PortfolioPage() {
                   Expanded project preview
                 </div>
 
-                <h3 className="text-lg font-semibold text-black">Article Preview</h3>
+                <h3 className="text-lg font-semibold text-black">
+                  Article Preview
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-zinc-700">
                   {selectedProject.article}
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-black">Code Preview</h3>
+                <h3 className="text-lg font-semibold text-black">
+                  Code Preview
+                </h3>
                 <pre className="mt-3 overflow-x-auto bg-zinc-950 p-4 text-sm text-zinc-100">
                   <code>{selectedProject.code}</code>
                 </pre>
