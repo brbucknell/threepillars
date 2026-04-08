@@ -59,7 +59,8 @@ function ResumeMockup() {
       {/* LEFT */}
       <aside className="bg-[#f3f0ed] px-5 py-6">
         <div className="flex flex-col items-center mb-4">
-        
+          {/* You can add a profile image here later */}
+        </div>
 
         <SectionTitle>PROFILE</SectionTitle>
         <p className="leading-relaxed text-sm text-zinc-600">
