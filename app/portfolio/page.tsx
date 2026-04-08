@@ -117,35 +117,20 @@ export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
 
-<nav className="mb-4 w-full max-w-[620px] items-center rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
-          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-6 sm:text-sm sm:tracking-[0.2em]">
-            <li>
-              <a
-                href="/resume"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
-              >
-                Resume
-              </a>
-            </li>
-            <li>
-              <a
-                href="/portfolio"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
-              >
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
-              >
-                About
-              </a>
-            </li>
-          </ul>
-        </nav>
-
+<nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
+  <a href="/" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Home
+  </a>
+  <a href="/resume" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Resume
+  </a>
+  <a href="/portfolio" className="text-sm font-bold uppercase tracking-[0.3em] text-black underline underline-offset-4">
+    Portfolio
+  </a>
+  <a href="/about" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    About
+  </a>
+</nav>
 
 
 
