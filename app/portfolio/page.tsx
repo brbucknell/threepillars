@@ -67,7 +67,7 @@ console.log(checklist);`,
     code: `export default function Home() {
   return (
     <main className="min-h-screen">
-      <h1>Portfolio Website</h1>
+      <h1></h1>
     </main>
   );
 }`,
@@ -133,18 +133,13 @@ export default function PortfolioPage() {
 </nav>
 
 
-
-
-
-
-
       
       <div className="mx-auto max-w-7xl">
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
             <div className="flex flex-col">
               <div className="flex items-center gap-4">
-                <div className="relative h-20 w-20 overflow-hidden rounded-full border-2 border-white shadow-md">
+                <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-white shadow-md">
                   <Image
                     src="/portfolioself.png"
                     alt="Bryan Bucknell"
@@ -155,7 +150,7 @@ export default function PortfolioPage() {
 
                 <div>
                   <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
-                    Portfolio
+                  
                   </p>
 
                   <h2 className="text-4xl font-extrabold text-black">
