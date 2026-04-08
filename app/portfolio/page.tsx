@@ -117,7 +117,7 @@ export default function PortfolioPage() {
   return (
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
 
-<nav className="mb-4 w-full max-w-[620px] rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
+<nav className="mb-4 w-full max-w-[620px] items-center rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
           <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-6 sm:text-sm sm:tracking-[0.2em]">
             <li>
               <a
