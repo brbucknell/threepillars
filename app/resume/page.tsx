@@ -74,6 +74,27 @@ export default function ResumePage() {
 }
 
 function ResumeMockup() {
+
+<nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
+  <a href="/" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Home
+  </a>
+  <a href="/resume" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Resume
+  </a>
+  <a href="/portfolio" className="text-sm font-bold uppercase tracking-[0.3em] text-black underline underline-offset-4">
+    Portfolio
+  </a>
+  <a href="/about" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    About
+  </a>
+</nav>
+
+
+
+
+
+  
   return (
     <div className="grid h-full w-full grid-cols-[30%_70%] text-sm text-zinc-700">
       {/* LEFT */}
