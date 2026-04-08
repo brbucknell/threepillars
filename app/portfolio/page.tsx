@@ -160,16 +160,18 @@ export default function PortfolioPage() {
               </p>
 
               <div className="mt-8 flex-1 bg-zinc-100 p-4">
-                <div className="relative h-full min-h-[320px] bg-zinc-200 flex items-center justify-center">
-  <Image
-    src="/preview.png"
-    alt="Female figure emerging from data"
-    fill
-    className="object-contain"
-    priority
-  />
+                <div className="mt-8 bg-zinc-100 p-4">
+  <div className="relative h-[520px] w-full overflow-hidden bg-zinc-200">
+    <Image
+      src="/female-data.png"
+      alt="Female figure emerging from data"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
 </div>
-             
+              
                 <div className="flex h-full min-h-[320px] items-center justify-center bg-zinc-200 text-sm text-zinc-500">
         
                              </div>
