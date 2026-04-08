@@ -127,31 +127,7 @@ export default function PortfolioPage() {
             >
            
             </h1>
-            <div className="w-full flex justify-center mt-4">
-  <div className="flex gap-12 rounded-full bg-gradient-to-r from-blue-200/60 to-teal-200/60 px-12 py-4 shadow-md backdrop-blur-md border border-white/40">
-    
-    <a
-      href="/resume"
-      className="text-sm font-semibold tracking-[0.3em] text-black hover:scale-105 transition"
-    >
-      RESUME
-    </a>
-
-    <a
-      href="/portfolio"
-      className="text-sm font-semibold tracking-[0.3em] text-black underline"
-    >
-      PORTFOLIO
-    </a>
-
-    <a
-      href="/about"
-      className="text-sm font-semibold tracking-[0.3em] text-black hover:scale-105 transition"
-    >
-      ABOUT
-    </a>
-
-  </div>
+         
 </div>
             <p
               className="mt-2 text-2xl font-bold text-black"
