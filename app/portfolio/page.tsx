@@ -138,7 +138,7 @@ export default function PortfolioPage() {
     src="/portfolioself.png"
     alt="Bryan Bucknell"
     fill
-    className="object-cover"
+    className="o"
   />
 </div>
 
