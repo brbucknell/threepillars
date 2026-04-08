@@ -157,13 +157,7 @@ export default function PortfolioPage() {
 
               <div className="mt-8 flex-1 bg-zinc-100 p-4">
                 <div className="flex h-full min-h-[320px] items-center justify-center bg-zinc-200 text-sm text-zinc-500">
-                   <Image
-    src="preview.png"
-    alt="Bryan Bucknell"
-    fill
-    className="object-cover"
-  />
-                </div>
+                              </div>
               </div>
             </div>
           </div>
