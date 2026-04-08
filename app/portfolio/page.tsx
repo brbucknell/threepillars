@@ -67,7 +67,7 @@ console.log(checklist);`,
     code: `export default function Home() {
   return (
     <main className="min-h-screen">
-      <h1>My Portfolio</h1>
+      <h1></h1>
     </main>
   );
 }`,
