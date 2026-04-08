@@ -12,7 +12,7 @@ export default function ResumePage() {
     
     <main className="min-h-screen bg-gradient-to-br from-zinc-200 via-zinc-300 to-zinc-400 flex items-center justify-center p-6">
 
-
+      <div className="flex flex-col items-center gap-4">
 <nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
   <a href="/" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
     Home
@@ -30,9 +30,7 @@ export default function ResumePage() {
 
 
 
-
-      
-      <div className="flex flex-col items-center gap-4">
+        
         <button
           onClick={() => setOpen(true)}
           className="group relative transition-transform duration-300 hover:scale-[1.02]"
@@ -80,12 +78,6 @@ export default function ResumePage() {
 
 function ResumeMockup() {
 
-
-
-
-
-
-  
   return (
     <div className="grid h-full w-full grid-cols-[30%_70%] text-sm text-zinc-700">
       {/* LEFT */}
