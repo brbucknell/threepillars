@@ -151,7 +151,7 @@ export default function PortfolioPage() {
               <div className="mt-8 bg-zinc-100 p-4">
                 <div className="relative h-[520px] w-full overflow-hidden bg-zinc-200">
                   <Image
-                    src="/female-data.png"
+                    src="/previw.png"
                     alt="Female figure emerging from data"
                     fill
                     className="object-contain"
