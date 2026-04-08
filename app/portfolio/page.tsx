@@ -116,6 +116,44 @@ export default function PortfolioPage() {
 
   return (
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
+
+<nav className="mb-4 w-full max-w-[620px] rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
+          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-6 sm:text-sm sm:tracking-[0.2em]">
+            <li>
+              <a
+                href="/resume"
+                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+              >
+                Resume
+              </a>
+            </li>
+            <li>
+              <a
+                href="/portfolio"
+                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+              >
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+              >
+                About
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+
+
+
+
+
+
+
+      
       <div className="mx-auto max-w-7xl">
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
