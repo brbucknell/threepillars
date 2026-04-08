@@ -9,6 +9,24 @@ export default function ResumePage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-zinc-200 via-zinc-300 to-zinc-400 flex items-center justify-center p-6">
+
+
+<nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
+  <a href="/" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Home
+  </a>
+  <a href="/resume" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    Resume
+  </a>
+  <a href="/portfolio" className="text-sm font-bold uppercase tracking-[0.3em] text-black underline underline-offset-4">
+    Portfolio
+  </a>
+  <a href="/about" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
+    About
+  </a>
+</nav>
+
+      
       <div className="flex flex-col items-center gap-4">
         <button
           onClick={() => setOpen(true)}
