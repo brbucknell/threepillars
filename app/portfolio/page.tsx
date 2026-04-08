@@ -133,13 +133,17 @@ export default function PortfolioPage() {
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
             <div className="flex h-full flex-col">
-              <div className="mb-6 h-40 w-40 relative overflow-hidden rounded-xl">
-  <Image
-    src="/portfolioself.png"
-    alt="Bryan Bucknell"
-    fill
-    className="o"
-  />
+             <div className="mt-8 bg-zinc-100 p-4">
+  <div className="relative h-[400px] w-full overflow-hidden bg-zinc-200">
+    <Image
+      src="/female-data.png"
+      alt="Female figure emerging from data"
+      fill
+      className="object-contain"
+      priority
+    />
+  </div>
+</div>
 </div>
 
               <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
