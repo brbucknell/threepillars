@@ -7,7 +7,7 @@ const pillarCards = [
     title: "Environmentalism and Green Cities",
     description:
       "Designing communities that live in harmony with nature through sustainability, clean energy, green spaces, and resilient urban systems.",
-    image: "/green-city.jpg",
+    image: "/green-cities.jpg",
   },
   {
     label: "Theme",
