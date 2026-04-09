@@ -127,27 +127,24 @@ function ResumeMockup() {
               place="University of Colorado Boulder"
               years="Recent"
             >
-              <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-600">
+              <ul className="mt-2 list-disc space-y-2 pl-5 textAlign: 'left text-sm text-zinc-600">
                 <li>
-                  Applied mathematics, statistics, and computer science
-                  fundamentals
+                  Applied mathematics, statistics, and computer science skills
+                
                 </li>
                 <li>
                   Data acquisition, cleaning, management, and data mining
-                </li>
-                <li>Machine learning and analytical modeling</li>
+                Machine learning and analytical modeling
                 <li>
                   Design and execution of statistical experiments and models
-                </li>
-                <li>
+                            
                   Drawing data-driven conclusions using probability and
                   statistical methods
                 </li>
                 <li>
                   Communicating complex results clearly to non-technical
                   audiences
-                </li>
-                <li>
+                
                   Structuring effective projects and collaborative workflows
                 </li>
                 <li>Ethical and responsible practice in data science</li>
