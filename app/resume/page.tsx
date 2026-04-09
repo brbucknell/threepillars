@@ -125,7 +125,9 @@ function ResumeMockup() {
               title="MSc Data Science"
               place="University of Colorado Boulder"
               years="Recent"
-            <Component>
+                             />
+          
+                  <Component>
   <ul className="list-disc pl-6 space-y-2">
     <li>Applied mathematics, statistics, and computer science fundamentals</li>
     <li>Data acquisition, cleaning, management, and data mining</li>
@@ -137,8 +139,7 @@ function ResumeMockup() {
     <li>Ethical and responsible practice in data science</li>
   </ul>
 </Component>
-              
-            />
+          
           </ResumeSection>
 
           <ResumeSection title="EXPERIENCE">
