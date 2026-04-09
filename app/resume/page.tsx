@@ -125,11 +125,18 @@ function ResumeMockup() {
               title="MSc Data Science"
               place="University of Colorado Boulder"
               years="Recent"
-              text="I have a wide range of skills in applied mathematics and statistics, computer science, and applications
-              <p>Acquiring, cleaning, and managing data, data mining and machine learning.<p>
-Design, conduct, and run statistical experiments and models; draw rational conclusions from data using probability theory and statistics; and more.
-Clearly communicate the results of a data science analysis to a non-technical audience; structure effective meetings and projects 
-using collaboration skills; and act ethically in the role of professional data scientist."
+            <Component>
+  <ul className="list-disc pl-6 space-y-2">
+    <li>Applied mathematics, statistics, and computer science fundamentals</li>
+    <li>Data acquisition, cleaning, management, and data mining</li>
+    <li>Machine learning and analytical modeling</li>
+    <li>Design and execution of statistical experiments and models</li>
+    <li>Drawing data-driven conclusions using probability and statistical methods</li>
+    <li>Communicating complex results clearly to non-technical audiences</li>
+    <li>Structuring effective projects and collaborative workflows</li>
+    <li>Ethical and responsible practice in data science</li>
+  </ul>
+</Component>
               
             />
           </ResumeSection>
