@@ -101,10 +101,10 @@ function ResumeMockup() {
 
         <SectionTitle>CONTACT</SectionTitle>
         <div className="space-y-1 text-sm text-zinc-600">
-          <p>+1 555 555 5555</p>
-          <p>email@email.com</p>
-          <p>linkedin.com/in/yourname</p>
-          <p>Peterborough, ON</p>
+          <p>+1 705-931-0884</p>
+          <p>bryan@threeillars.dev</p>
+          <p>https://www.linkedin.com/in/bryan-b-9297383a1/</p>
+          
         </div>
       </aside>
 
@@ -125,7 +125,13 @@ function ResumeMockup() {
               title="MSc Data Science"
               place="University of Colorado Boulder"
               years="Recent"
-              text="Advanced training in machine learning, statistics, and data analysis."
+              text="I have a wide range of skills in applied mathematics and statistics, computer science, and applications
+<ul>
+             <li> Acquiring, cleaning, and managing data, data mining and machine learning.</li>
+<li>Design, conduct, and run statistical experiments and models; draw rational conclusions from data using probability theory and statistics; and more.</li>
+<li> Clearly communicate the results of a data science analysis to a non-technical audience; structure effective meetings and projects 
+              using collaboration skills; and act ethically in the role of professional data scientist.<li>
+              </ul>
             />
           </ResumeSection>
 
