@@ -126,8 +126,7 @@ function ResumeMockup() {
               place="University of Colorado Boulder"
               years="Recent"
               text="I have a wide range of skills in applied mathematics and statistics, computer science, and applications
-
-              Acquiring, cleaning, and managing data, data mining and machine learning.
+              <p>Acquiring, cleaning, and managing data, data mining and machine learning.<p>
 Design, conduct, and run statistical experiments and models; draw rational conclusions from data using probability theory and statistics; and more.
 Clearly communicate the results of a data science analysis to a non-technical audience; structure effective meetings and projects 
 using collaboration skills; and act ethically in the role of professional data scientist."
