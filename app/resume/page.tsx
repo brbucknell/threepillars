@@ -127,7 +127,7 @@ function ResumeMockup() {
               place="University of Colorado Boulder"
               years="Recent"
             >
-              <ul className="mt-2 list-disc space-y-2 pl-5 textAlign: left text-sm text-zinc-600">
+              <ul className="mt-2 list-disc space-y-2 pl-5 text-left text-sm text-zinc-600">
                 <li> Applied mathematics, statistics, and computer science skills</li>
                 <li> Data acquisition, cleaning, management, and data mining Machine learning and analytical modeling </li>
                <li>Design and execution of statistical experiments and models. Drawing data-driven conclusions using probability and statistical methods
