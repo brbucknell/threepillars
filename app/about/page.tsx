@@ -7,7 +7,7 @@ const pillarCards = [
     title: "Environmentalism and Green Cities",
     description:
       "Designing communities that live in harmony with nature through sustainability, clean energy, green spaces, and resilient urban systems.",
-    image: "/green-cities.jpg",
+    image: "/green-city.jpg",
   },
   {
     label: "Theme",
@@ -63,7 +63,13 @@ function InfoCard({
   return (
     <article className="rounded-lg bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
       <div className="relative mb-3 h-24 w-full overflow-hidden rounded bg-zinc-100">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="h-full w-full object-cover"
+        />
       </div>
 
       <p className="mb-1 text-[10px] uppercase tracking-[0.2em] text-zinc-400">
@@ -98,7 +104,10 @@ export default function AboutPage() {
             <Link href="/resume" className="hover:text-black">
               Resume
             </Link>
-            <Link href="/about" className="text-black underline underline-offset-4">
+            <Link
+              href="/about"
+              className="text-black underline underline-offset-4"
+            >
               About
             </Link>
           </nav>
