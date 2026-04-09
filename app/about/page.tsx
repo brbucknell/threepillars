@@ -1,139 +1,148 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const pillars = [
+const pillarCards = [
   {
-    title: "Environmentalism\nand\nGreen Cities",
+    label: "THEME",
+    title: "Environmentalism and Green Cities",
+    description:
+      "Designing communities that live in harmony with nature through sustainability, clean energy, green spaces, and resilient urban systems.",
     image: "/green-city.jpg",
-    text: "Designing communities that live in harmony with nature, prioritizing sustainability, clean energy, green spaces, and resilient urban systems that support both people and the planet.",
-    titleClass: "text-teal-800",
   },
   {
-    title: "Peaceful\nCoexistence",
+    label: "THEME",
+    title: "Peaceful Coexistence",
+    description:
+      "Fostering empathy, cooperation, and mutual respect so conflicts are resolved constructively and diverse communities can thrive together.",
     image: "/peaceful-coexistence.jpg",
-    text: "Fostering a society grounded in empathy, cooperation, and mutual respect, where conflicts are resolved through negotiation and compromise and diverse communities can thrive together.",
-    titleClass: "text-orange-700",
   },
   {
-    title: "The\nSciences",
+    label: "THEME",
+    title: "The Sciences",
+    description:
+      "Using evidence, discovery, and innovation to advance sustainability, green energy, medicine, health, food security, and ethical progress.",
     image: "/science.jpg",
-    text: "Using evidence, discovery, and innovation to solve humanity’s greatest challenges like sustainability, green energy, medicine, health, and food security. Using science and data to drive meaningful ethical progress.",
-    titleClass: "text-black",
   },
 ];
 
-const actions = [
+const actionCards = [
   {
+    label: "PRACTICE",
     title: "Education",
+    description:
+      "Transforming complex information into clear, useful insights that help people think critically and make informed decisions.",
     image: "/education.jpg",
-    text: "We believe knowledge should be accessible, transparent, and empowering. We transform complex information into clear insights people can use.",
-    titleClass: "text-blue-700",
   },
   {
-    title: "Lobbying\nAnd\nActivism",
+    label: "PRACTICE",
+    title: "Lobbying and Activism",
+    description:
+      "Supporting evidence-based advocacy and reform by identifying patterns of inequality, inefficiency, and systemic challenges.",
     image: "/activism.jpg",
-    text: "We support evidence-based policy and advocacy by identifying patterns of inequality and systemic challenges.",
-    titleClass: "text-black",
   },
   {
+    label: "GOAL",
     title: "Human Flourishing",
+    description:
+      "Defining success by whether people are able to live meaningful, healthy, dignified, and fulfilling lives.",
     image: "/human-flourishing.jpg",
-    text: "We define success by meaningful, healthy lives—prioritizing well-being, reducing suffering, and expanding opportunity.",
-    titleClass: "text-black",
   },
 ];
+
+function InfoCard({
+  label,
+  title,
+  description,
+  image,
+}: {
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+}) {
+  return (
+    <article className="rounded-xl bg-white p-4 shadow-[0_8px_24px_rgba(0,0,0,0.10)]">
+      <div className="relative mb-4 h-36 w-full overflow-hidden rounded-md bg-zinc-100">
+        <Image src={image} alt={title} fill className="object-cover" />
+      </div>
+
+      <p className="mb-2 text-[11px] uppercase tracking-[0.28em] text-zinc-500">
+        {label}
+      </p>
+
+      <h3 className="mb-3 text-2xl font-semibold leading-snug text-black">
+        {title}
+      </h3>
+
+      <p className="text-base leading-8 text-zinc-600">{description}</p>
+    </article>
+  );
+}
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#efefef] text-black">
-      {/* Top Menu */}
-      <header className="w-full border-b bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-base font-bold">
+      <header className="w-full border-b border-zinc-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <Link href="/" className="text-lg font-bold text-black">
             Bryan Bucknell
           </Link>
 
-          <nav className="flex gap-4 text-xs font-medium text-zinc-700">
-            <Link href="/">Home</Link>
-            <Link href="/portfolio">Portfolio</Link>
-            <Link href="/resume">Resume</Link>
-            <Link href="/about" className="text-black underline">
+          <nav className="flex gap-6 text-sm font-medium text-zinc-700">
+            <Link href="/" className="hover:text-black">
+              Home
+            </Link>
+            <Link href="/portfolio" className="hover:text-black">
+              Portfolio
+            </Link>
+            <Link href="/resume" className="hover:text-black">
+              Resume
+            </Link>
+            <Link href="/about" className="text-black">
               About
             </Link>
           </nav>
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-4 py-8">
-        {/* Titles */}
-        <div className="text-center">
-          <h1 className="text-2xl font-extrabold text-green-700 md:text-3xl">
+      <section className="mx-auto max-w-7xl px-6 py-12">
+        <div className="mb-10 text-center">
+          <h1 className="text-3xl font-bold text-green-700 md:text-4xl">
             About Three Pillars
           </h1>
-
-          <h2 className="mt-3 text-xl font-bold text-blue-900 md:text-2xl">
-            The Three Pillars of Human Flourishing:
+          <h2 className="mt-3 text-xl font-semibold text-blue-900 md:text-2xl">
+            The Three Pillars of Human Flourishing
           </h2>
         </div>
 
-        {/* Pillars */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {pillars.map((item) => (
-            <div key={item.title} className="text-center">
-              <h3
-                className={`mb-3 whitespace-pre-line text-lg font-bold leading-tight ${item.titleClass}`}
-              >
-                {item.title}
-              </h3>
-
-              <div className="mx-auto mb-3 h-24 w-40 relative overflow-hidden shadow">
-                <Image src={item.image} alt="" fill className="object-cover" />
-              </div>
-
-              <p className="text-xs leading-relaxed text-left px-2">
-                {item.text}
-              </p>
-            </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {pillarCards.map((card) => (
+            <InfoCard key={card.title} {...card} />
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="mt-12">
-          <h2 className="text-lg font-bold">We promote this through:</h2>
-
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {actions.map((item) => (
-              <div key={item.title} className="text-center">
-                <h3
-                  className={`mb-3 whitespace-pre-line text-lg font-bold ${item.titleClass}`}
-                >
-                  {item.title}
-                </h3>
-
-                <div className="mx-auto mb-3 h-24 w-40 relative overflow-hidden shadow">
-                  <Image src={item.image} alt="" fill className="object-cover" />
-                </div>
-
-                <p className="text-xs leading-relaxed text-left px-2">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-14 mb-8">
+          <h2 className="text-2xl font-bold text-black">
+            We promote this through
+          </h2>
         </div>
 
-        {/* Statement */}
-        <div className="mt-12">
-          <p className="text-sm font-bold leading-relaxed">
+        <div className="grid gap-6 md:grid-cols-3">
+          {actionCards.map((card) => (
+            <InfoCard key={card.title} {...card} />
+          ))}
+        </div>
+
+        <div className="mt-14 rounded-xl bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+          <p className="text-lg leading-8 text-zinc-700">
             Data science, when guided by humanist values, becomes a tool for
-            enhancing dignity, supporting communities, and creating a more just
-            and compassionate world.
+            enhancing dignity, supporting communities, and creating a more just,
+            compassionate, and meaningful world.
           </p>
         </div>
 
-        {/* Collage */}
-        <div className="mt-12 bg-sky-700 py-10 text-center">
-          <h2 className="text-2xl font-extrabold text-black">
+        <div className="mt-10 rounded-xl bg-sky-700 px-6 py-14 text-center shadow-[0_8px_24px_rgba(0,0,0,0.10)]">
+          <h2 className="text-4xl font-bold text-black md:text-5xl">
             Collage Here
           </h2>
         </div>
