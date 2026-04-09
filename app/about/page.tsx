@@ -62,13 +62,14 @@ function InfoCard({
 }) {
   return (
     <article className="rounded-lg bg-white p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="relative mb-3 h-24 w-full overflow-hidden rounded bg-zinc-100">
+      <div className="mb-3 flex h-28 w-full items-center justify-center overflow-hidden rounded bg-zinc-100">
         <Image
           src={image}
           alt={title}
-          fill
+          width={500}
+          height={300}
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       </div>
 
