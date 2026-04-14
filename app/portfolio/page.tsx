@@ -220,14 +220,14 @@ export default function PortfolioPage() {
                 onClick={() => setSelectedProject(project)}
                 className="rounded-sm bg-white p-4 text-left shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition hover:-translate-y-1"
               >
-                <div className="mb-4 flex h-36 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
-                 <Image
+             <div className="mb-4 relative h-36 w-full overflow-hidden rounded-sm bg-zinc-100">
+  <Image
     src="/Affordability.png"
     alt="Housing vs Income chart"
     fill
     className="object-cover"
   />
-                </div>
+</div>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
                   {project.category}
