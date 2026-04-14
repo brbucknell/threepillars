@@ -222,7 +222,7 @@ export default function PortfolioPage() {
               >
                 <div className="mb-4 flex h-36 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
                  <Image
-    src="/housing-chart.png"
+    src="/Affordability.png"
     alt="Housing vs Income chart"
     fill
     className="object-cover"
