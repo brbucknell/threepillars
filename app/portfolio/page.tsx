@@ -11,31 +11,57 @@ type Project = {
   summary: string;
   article: string;
   code: string;
+  insights?: string[];
   github?: string;
   demo?: string;
+  articleLink?: string;
 };
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Housing vs Income",
+    title: "Housing vs Income: A Canadian Affordability Analysis",
     category: "Data Analysis",
     image: "/project1.jpg",
     summary:
-      "A portfolio case study examining whether housing costs are rising faster than income in Canada.",
+      "An analysis of Canadian housing affordability trends comparing housing costs to real income over time.",
     article:
-      "This project explores Canadian affordability trends using publicly available datasets. It compares income growth with housing cost growth and presents the findings through clear visual storytelling. The goal is to show both technical skill and social relevance.",
+      "This project analyzes Canadian housing affordability by comparing housing cost growth to real income trends between 2012 and 2023. Using publicly available datasets, the analysis reveals a significant divergence: housing costs increased by over 50% while real income stagnated or declined. The project combines statistical analysis with clear visual storytelling to highlight the growing affordability crisis.",
+    insights: [
+      "Housing costs increased by over 50% between 2012 and 2023",
+      "Real income remained flat or declined over the same period",
+      "The affordability gap widened significantly across the decade",
+    ],
     code: `import pandas as pd
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("housing_income.csv")
 
-plt.plot(df["year"], df["income"], label="Income")
-plt.plot(df["year"], df["housing"], label="Housing")
+plt.figure(figsize=(10, 6))
+plt.plot(df["year"], df["income"], label="Real Income")
+plt.plot(df["year"], df["housing"], label="Housing Costs")
+
+plt.title("Housing Costs vs Real Income in Canada")
+plt.xlabel("Year")
+plt.ylabel("Indexed Change / Value")
 plt.legend()
+
+plt.subplots_adjust(bottom=0.22)
+
+plt.figtext(
+    0.5,
+    0.02,
+    "Note: Between 2012 and 2023, housing costs in Canada increased by over 50%, while real income declined, indicating a marked deterioration in housing affordability.",
+    ha="center",
+    fontsize=9,
+    style="italic",
+    wrap=True
+)
+
 plt.show()`,
     github: "#",
     demo: "#",
+    articleLink: "#",
   },
   {
     id: 2,
@@ -55,6 +81,7 @@ plt.show()`,
 
 console.log(checklist);`,
     github: "#",
+    articleLink: "#",
   },
   {
     id: 3,
@@ -67,12 +94,13 @@ console.log(checklist);`,
     code: `export default function Home() {
   return (
     <main className="min-h-screen">
-      <h1></h1>
+      <h1>Portfolio Website</h1>
     </main>
   );
 }`,
     github: "#",
     demo: "#",
+    articleLink: "#",
   },
   {
     id: 4,
@@ -91,6 +119,7 @@ X = sm.add_constant(X)
 model = sm.OLS(y, X).fit()
 print(model.summary())`,
     github: "#",
+    articleLink: "#",
   },
   {
     id: 5,
@@ -108,6 +137,7 @@ print(model.summary())`,
   outputs/
   README.md`,
     github: "#",
+    articleLink: "#",
   },
 ];
 
@@ -116,24 +146,33 @@ export default function PortfolioPage() {
 
   return (
     <main className="min-h-screen bg-[#d6d6d6] px-6 py-10">
+      <nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
+        <a
+          href="/"
+          className="text-sm font-bold uppercase tracking-[0.3em] text-black"
+        >
+          Home
+        </a>
+        <a
+          href="/resume"
+          className="text-sm font-bold uppercase tracking-[0.3em] text-black"
+        >
+          Resume
+        </a>
+        <a
+          href="/portfolio"
+          className="text-sm font-bold uppercase tracking-[0.3em] text-black underline underline-offset-4"
+        >
+          Portfolio
+        </a>
+        <a
+          href="/about"
+          className="text-sm font-bold uppercase tracking-[0.3em] text-black"
+        >
+          About
+        </a>
+      </nav>
 
-<nav className="mx-auto flex w-fit items-center gap-10 rounded-full bg-[linear-gradient(90deg,#b8d4ef,#a9e3d6)] px-10 py-4 shadow-md">
-  <a href="/" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
-    Home
-  </a>
-  <a href="/resume" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
-    Resume
-  </a>
-  <a href="/portfolio" className="text-sm font-bold uppercase tracking-[0.3em] text-black underline underline-offset-4">
-    Portfolio
-  </a>
-  <a href="/about" className="text-sm font-bold uppercase tracking-[0.3em] text-black">
-    About
-  </a>
-</nav>
-
-
-      
       <div className="mx-auto max-w-7xl">
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_2fr]">
           <div className="rounded-sm bg-white p-6 shadow-[0_10px_24px_rgba(0,0,0,0.18)]">
@@ -149,10 +188,6 @@ export default function PortfolioPage() {
                 </div>
 
                 <div>
-                  <p className="text-xs uppercase tracking-[0.25em] text-zinc-500">
-                  
-                  </p>
-
                   <h2 className="text-4xl font-extrabold text-black">
                     Bryan Bucknell
                   </h2>
@@ -160,7 +195,7 @@ export default function PortfolioPage() {
               </div>
 
               <p className="mt-4 text-sm text-zinc-600">
-                Data Science, software development, technical analysis, and
+                Data science, software development, technical analysis, and
                 writing focused on meaningful real-world problems.
               </p>
 
@@ -239,6 +274,19 @@ export default function PortfolioPage() {
                 <p className="mt-3 text-sm leading-7 text-zinc-700">
                   {selectedProject.article}
                 </p>
+
+                {selectedProject.insights && (
+                  <div className="mt-5">
+                    <h4 className="text-sm font-semibold uppercase tracking-[0.15em] text-zinc-500">
+                      Key Findings
+                    </h4>
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-700">
+                      {selectedProject.insights.map((insight, index) => (
+                        <li key={index}>{insight}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               <div>
@@ -265,7 +313,7 @@ export default function PortfolioPage() {
                   </a>
 
                   <a
-                    href="#"
+                    href={selectedProject.articleLink || "#"}
                     className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
                   >
                     Read Article
