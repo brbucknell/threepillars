@@ -221,7 +221,12 @@ export default function PortfolioPage() {
                 className="rounded-sm bg-white p-4 text-left shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition hover:-translate-y-1"
               >
                 <div className="mb-4 flex h-36 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
-                  Preview image
+                 <Image
+    src="/housing-chart.png"
+    alt="Housing vs Income chart"
+    fill
+    className="object-cover"
+  />
                 </div>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
