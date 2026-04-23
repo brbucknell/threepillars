@@ -107,8 +107,8 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch justify-items-center gap-4 xl:grid-cols-[0.75fr_1.4fr_0.75fr]">
-          <aside className="flex h-full w-full max-w-[420px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
+        <section className="grid w-full max-w-[1600px] grid-cols-1 items-stretch justify-items-center gap-4 xl:grid-cols-[0.8fr_1.1fr_0.8fr]">
+          <aside className="flex h-full w-full max-w-[400px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
             <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Brief Description
             </h2>
@@ -125,7 +125,7 @@ export default function Home() {
             </div>
           </aside>
 
-          <div className="flex h-full w-full flex-col rounded-[2rem] border border-blue-100/40 bg-sky-300/18 p-5 shadow-2xl backdrop-blur-md sm:p-6">
+          <div className="flex h-full w-full max-w-[760px] flex-col rounded-[2rem] border border-blue-100/40 bg-sky-300/18 p-5 shadow-2xl backdrop-blur-md sm:p-6">
             <header className="mb-5 text-center">
               <h1
                 className="text-4xl italic leading-tight text-black sm:text-6xl"
@@ -142,7 +142,7 @@ export default function Home() {
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[600px] flex-1 items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[560px] flex-1 items-end gap-2 sm:gap-6">
               <div
                 className="relative hidden w-10 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
@@ -218,7 +218,7 @@ export default function Home() {
             </section>
           </div>
 
-          <aside className="flex h-full w-full max-w-[420px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
+          <aside className="flex h-full w-full max-w-[400px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
             <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Services
             </h2>
