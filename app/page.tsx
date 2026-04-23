@@ -106,8 +106,7 @@ export default function Home() {
             </li>
           </ul>
         </nav>
-
-        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-4 xl:grid-cols-[0.65fr_1.4fr_0.65fr]">
+    <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-4 xl:grid-cols-[1fr_auto_1fr]">
           <aside className="flex h-full flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
             <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Brief Description
@@ -142,7 +141,7 @@ export default function Home() {
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[500px] flex-1 items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[420px] flex-1 items-end gap-2 sm:gap-6">
               <div
                 className="relative hidden w-10 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
