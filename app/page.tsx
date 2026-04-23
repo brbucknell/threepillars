@@ -75,10 +75,10 @@ export default function Home() {
         }}
       />
 
-      <div className="absolute inset-0 bg-white/20" />
+      <div className="absolute inset-0 bg-white/15" />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-6 pb-6 sm:px-6 sm:pt-10">
-        <nav className="mb-5 w-full max-w-[720px] rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
+        <nav className="mb-5 w-full max-w-[720px] rounded-3xl border border-white/25 bg-white/20 px-4 py-3 shadow-md backdrop-blur-sm">
           <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-8 sm:text-sm sm:tracking-[0.2em]">
             <li>
               <a
@@ -107,53 +107,49 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-5 xl:grid-cols-[1fr_1.45fr_1fr]">
-          <aside className="rounded-[2rem] border border-white/35 bg-white/25 p-6 shadow-2xl backdrop-blur-md">
-            <h2 className="mb-4 text-3xl text-black sm:text-4xl">
-              Brief Description of Business
+        <section className="grid w-full max-w-[1500px] grid-cols-1 items-start gap-4 xl:grid-cols-[0.85fr_1.2fr_0.85fr]">
+          <aside className="rounded-2xl border border-white/20 bg-red-200/10 p-4 shadow-lg backdrop-blur-sm">
+            <h2 className="mb-2 text-xl text-black sm:text-2xl">
+              Brief Description
             </h2>
 
-            <div className="space-y-4 text-base leading-relaxed text-zinc-900 sm:text-lg">
+            <div className="space-y-2 text-sm leading-relaxed text-zinc-900 sm:text-base">
               <p>
-                Three Pillars provides data science consulting focused on clear,
-                reliable, and practical analysis for real-world decisions.
+                Three Pillars provides practical, results-focused data science
+                consulting.
               </p>
               <p>
-                The business combines statistical reasoning, machine learning,
-                visualization, and data infrastructure to help clients move from
-                raw information to meaningful action.
-              </p>
-              <p>
-                With an emphasis on precision, development, and integration,
-                Three Pillars delivers work that is technically sound,
-                understandable, and aligned with client goals.
+                From raw data to actionable insight, the goal is clarity,
+                reliability, and real-world impact.
               </p>
             </div>
           </aside>
 
-          <div className="rounded-[2rem] border border-white/40 bg-white/40 p-4 shadow-2xl backdrop-blur-md sm:p-6">
-            <header className="mb-6 text-center">
+          <div className="rounded-2xl border border-white/20 bg-blue-200/10 p-4 shadow-xl backdrop-blur-sm sm:p-5">
+            <header className="mb-4 text-center">
               <h1
-                className="text-4xl italic leading-tight text-black sm:text-6xl"
+                className="text-3xl italic leading-tight text-black sm:text-5xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Three Pillars
               </h1>
 
               <p
-                className="mt-2 text-lg text-zinc-800 sm:text-3xl"
+                className="mt-1 text-base text-zinc-800 sm:text-2xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Data Science Consulting
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[520px] items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[460px] items-end gap-2 sm:gap-6">
               <div
                 className="relative hidden w-10 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
               >
-                <span className="absolute bottom-0 text-[10px] text-zinc-600">0</span>
+                <span className="absolute bottom-0 text-[10px] text-zinc-600">
+                  0
+                </span>
                 <span className="absolute bottom-[20%] text-[10px] text-zinc-600">
                   200
                 </span>
@@ -213,7 +209,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <div className="mt-3 text-2xl font-bold sm:text-4xl">
+                    <div className="mt-3 text-xl font-bold sm:text-3xl">
                       {bar.label}
                     </div>
                   </div>
@@ -222,20 +218,16 @@ export default function Home() {
             </section>
           </div>
 
-          <aside className="rounded-[2rem] border border-white/35 bg-emerald-200/25 p-6 shadow-2xl backdrop-blur-md">
-            <h2 className="mb-4 text-3xl text-black sm:text-4xl">
-              Services Offered
+          <aside className="rounded-2xl border border-white/20 bg-red-200/10 p-4 shadow-lg backdrop-blur-sm">
+            <h2 className="mb-2 text-xl text-black sm:text-2xl">
+              Services
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-3 text-sm sm:text-base">
               {services.map((service) => (
                 <div key={service.title}>
-                  <h3 className="text-xl font-bold text-black sm:text-2xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1 text-base leading-relaxed text-zinc-900 sm:text-lg">
-                    {service.description}
-                  </p>
+                  <p className="font-semibold text-black">{service.title}</p>
+                  <p className="text-zinc-800">{service.description}</p>
                 </div>
               ))}
             </div>
@@ -246,7 +238,7 @@ export default function Home() {
           className="relative z-10 mt-5 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-6 sm:flex-row sm:gap-3"
           style={{ fontFamily: '"Times New Roman", serif' }}
         >
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
             Precision
           </span>
 
@@ -254,7 +246,7 @@ export default function Home() {
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
             Development
           </span>
 
@@ -262,7 +254,7 @@ export default function Home() {
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
             Integration
           </span>
         </div>
