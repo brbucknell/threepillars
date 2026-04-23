@@ -107,7 +107,7 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-4 xl:grid-cols-[0.9fr_1.25fr_0.9fr]">
+        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-4 xl:grid-cols-[0.65fr_1.4fr_0.65fr]">
           <aside className="flex h-full flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
             <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Brief Description
