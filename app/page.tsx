@@ -36,11 +36,11 @@ export default function Home() {
   ];
 
   const dotColors = [
-    "bg-lime-400/70",
-    "bg-sky-300/70",
-    "bg-violet-400/70",
-    "bg-green-300/70",
-    "bg-blue-300/70",
+    "bg-lime-400/80",
+    "bg-sky-300/80",
+    "bg-violet-400/80",
+    "bg-green-300/80",
+    "bg-blue-300/80",
   ];
 
   const services = [
@@ -75,10 +75,10 @@ export default function Home() {
         }}
       />
 
-      <div className="absolute inset-0 bg-white/15" />
+      <div className="absolute inset-0 bg-white/10" />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-6 pb-6 sm:px-6 sm:pt-10">
-        <nav className="mb-5 w-full max-w-[720px] rounded-3xl border border-white/25 bg-white/20 px-4 py-3 shadow-md backdrop-blur-sm">
+        <nav className="mb-5 w-full max-w-[840px] rounded-3xl border border-white/35 bg-white/30 px-4 py-3 shadow-lg backdrop-blur-md">
           <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-8 sm:text-sm sm:tracking-[0.2em]">
             <li>
               <a
@@ -107,13 +107,13 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section className="grid w-full max-w-[1500px] grid-cols-1 items-start gap-4 xl:grid-cols-[0.85fr_1.2fr_0.85fr]">
-          <aside className="rounded-2xl border border-white/20 bg-red-200/10 p-4 shadow-lg backdrop-blur-sm">
-            <h2 className="mb-2 text-xl text-black sm:text-2xl">
+        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-4 xl:grid-cols-[0.9fr_1.25fr_0.9fr]">
+          <aside className="flex h-full flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
+            <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Brief Description
             </h2>
 
-            <div className="space-y-2 text-sm leading-relaxed text-zinc-900 sm:text-base">
+            <div className="space-y-4 text-base leading-relaxed text-zinc-900 sm:text-lg">
               <p>
                 Three Pillars provides practical, results-focused data science
                 consulting.
@@ -125,44 +125,44 @@ export default function Home() {
             </div>
           </aside>
 
-          <div className="rounded-2xl border border-white/20 bg-blue-200/10 p-4 shadow-xl backdrop-blur-sm sm:p-5">
-            <header className="mb-4 text-center">
+          <div className="flex h-full flex-col rounded-[2rem] border border-blue-100/40 bg-sky-300/18 p-5 shadow-2xl backdrop-blur-md sm:p-6">
+            <header className="mb-5 text-center">
               <h1
-                className="text-3xl italic leading-tight text-black sm:text-5xl"
+                className="text-4xl italic leading-tight text-black sm:text-6xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Three Pillars
               </h1>
 
               <p
-                className="mt-1 text-base text-zinc-800 sm:text-2xl"
+                className="mt-2 text-lg text-zinc-800 sm:text-3xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Data Science Consulting
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[460px] items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[500px] flex-1 items-end gap-2 sm:gap-6">
               <div
                 className="relative hidden w-10 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
               >
-                <span className="absolute bottom-0 text-[10px] text-zinc-600">
+                <span className="absolute bottom-0 text-[10px] text-zinc-700">
                   0
                 </span>
-                <span className="absolute bottom-[20%] text-[10px] text-zinc-600">
+                <span className="absolute bottom-[20%] text-[10px] text-zinc-700">
                   200
                 </span>
-                <span className="absolute bottom-[40%] text-[10px] text-zinc-600">
+                <span className="absolute bottom-[40%] text-[10px] text-zinc-700">
                   400
                 </span>
-                <span className="absolute bottom-[60%] text-[10px] text-zinc-600">
+                <span className="absolute bottom-[60%] text-[10px] text-zinc-700">
                   600
                 </span>
-                <span className="absolute bottom-[80%] text-[10px] text-zinc-600">
+                <span className="absolute bottom-[80%] text-[10px] text-zinc-700">
                   800
                 </span>
-                <span className="absolute bottom-[96%] text-[10px] text-zinc-600">
+                <span className="absolute bottom-[96%] text-[10px] text-zinc-700">
                   1000
                 </span>
               </div>
@@ -218,16 +218,16 @@ export default function Home() {
             </section>
           </div>
 
-          <aside className="rounded-2xl border border-white/20 bg-red-200/10 p-4 shadow-lg backdrop-blur-sm">
-            <h2 className="mb-2 text-xl text-black sm:text-2xl">
+          <aside className="flex h-full flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
+            <h2 className="mb-3 text-2xl text-black sm:text-3xl">
               Services
             </h2>
 
-            <div className="space-y-3 text-sm sm:text-base">
+            <div className="space-y-4 text-sm sm:text-base">
               {services.map((service) => (
                 <div key={service.title}>
                   <p className="font-semibold text-black">{service.title}</p>
-                  <p className="text-zinc-800">{service.description}</p>
+                  <p className="text-zinc-900">{service.description}</p>
                 </div>
               ))}
             </div>
