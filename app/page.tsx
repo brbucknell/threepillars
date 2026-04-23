@@ -43,6 +43,29 @@ export default function Home() {
     "bg-blue-300/70",
   ];
 
+  const services = [
+    {
+      title: "Data Insights & Decision Support",
+      description: "Understanding what’s happening and why.",
+    },
+    {
+      title: "Dashboards & Data Visualization",
+      description: "Making data easy to understand and act on.",
+    },
+    {
+      title: "Predictive Analytics & Machine Learning",
+      description: "Using data to forecast and optimize outcomes.",
+    },
+    {
+      title: "Data Infrastructure & Automation",
+      description: "Building reliable systems and workflows.",
+    },
+    {
+      title: "Strategy, Experimentation & Enablement",
+      description: "Turning data into long-term business value.",
+    },
+  ];
+
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <div
@@ -54,9 +77,9 @@ export default function Home() {
 
       <div className="absolute inset-0 bg-white/20" />
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-6 pb-4 sm:px-6 sm:pt-10">
-        <nav className="mb-4 w-full max-w-[620px] rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
-          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-6 sm:text-sm sm:tracking-[0.2em]">
+      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-6 pb-6 sm:px-6 sm:pt-10">
+        <nav className="mb-5 w-full max-w-[720px] rounded-3xl border border-white/40 bg-white/45 px-4 py-3 shadow-lg backdrop-blur-md">
+          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-8 sm:text-sm sm:tracking-[0.2em]">
             <li>
               <a
                 href="/resume"
@@ -84,92 +107,146 @@ export default function Home() {
           </ul>
         </nav>
 
-        <div className="w-full max-w-[620px] rounded-3xl border border-white/40 bg-white/55 p-4 shadow-2xl backdrop-blur-md sm:p-6">
-          <header className="mb-6 text-center">
-            <h1
-              className="text-3xl italic leading-tight text-black sm:text-5xl"
-              style={{ fontFamily: '"Times New Roman", serif' }}
-            >
-              Three Pillars
-            </h1>
+        <section className="grid w-full max-w-[1800px] grid-cols-1 items-stretch gap-5 xl:grid-cols-[1fr_1.45fr_1fr]">
+          <aside className="rounded-[2rem] border border-white/35 bg-white/25 p-6 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-4 text-3xl text-black sm:text-4xl">
+              Brief Description of Business
+            </h2>
 
-            <p
-              className="mt-2 text-base text-zinc-800 sm:text-2xl"
-              style={{ fontFamily: '"Times New Roman", serif' }}
-            >
-              Data Science Consulting
-            </p>
-          </header>
-
-          <section className="mx-auto flex w-full max-w-[460px] items-end gap-2 sm:gap-6">
-            <div
-              className="relative hidden w-10 shrink-0 sm:block"
-              style={{ height: `${chartHeight}px` }}
-            >
-              <span className="absolute bottom-0 text-[10px] text-zinc-600">0</span>
-              <span className="absolute bottom-[20%] text-[10px] text-zinc-600">200</span>
-              <span className="absolute bottom-[40%] text-[10px] text-zinc-600">400</span>
-              <span className="absolute bottom-[60%] text-[10px] text-zinc-600">600</span>
-              <span className="absolute bottom-[80%] text-[10px] text-zinc-600">800</span>
-              <span className="absolute bottom-[96%] text-[10px] text-zinc-600">1000</span>
+            <div className="space-y-4 text-base leading-relaxed text-zinc-900 sm:text-lg">
+              <p>
+                Three Pillars provides data science consulting focused on clear,
+                reliable, and practical analysis for real-world decisions.
+              </p>
+              <p>
+                The business combines statistical reasoning, machine learning,
+                visualization, and data infrastructure to help clients move from
+                raw information to meaningful action.
+              </p>
+              <p>
+                With an emphasis on precision, development, and integration,
+                Three Pillars delivers work that is technically sound,
+                understandable, and aligned with client goals.
+              </p>
             </div>
+          </aside>
 
-            <div className="grid flex-1 grid-cols-3 items-end gap-2 sm:gap-6">
-              {bars.map((bar, barIndex) => (
-                <div key={bar.label} className="flex min-w-0 flex-col items-center">
-                  <div
-                    className="relative flex w-full items-end justify-center"
-                    style={{ height: `${chartHeight}px` }}
-                  >
-                    {bar.dots.map((dot, i) => (
-                      <span
-                        key={i}
-                        className={`absolute h-2.5 w-2.5 rounded-full sm:h-3 sm:w-3 ${
-                          dotColors[(barIndex + i) % dotColors.length]
-                        }`}
-                        style={{
-                          left: dot.left,
-                          bottom: dot.bottom,
-                        }}
-                      />
-                    ))}
+          <div className="rounded-[2rem] border border-white/40 bg-white/40 p-4 shadow-2xl backdrop-blur-md sm:p-6">
+            <header className="mb-6 text-center">
+              <h1
+                className="text-4xl italic leading-tight text-black sm:text-6xl"
+                style={{ fontFamily: '"Times New Roman", serif' }}
+              >
+                Three Pillars
+              </h1>
 
-                    <div className="flex w-full max-w-[72px] flex-col overflow-hidden rounded-sm shadow">
-                      <div
-                        className="bg-green-500"
-                        style={{
-                          height: `${(bar.segments[0] / 1000) * chartHeight}px`,
-                        }}
-                      />
-                      <div
-                        className="bg-blue-700"
-                        style={{
-                          height: `${(bar.segments[1] / 1000) * chartHeight}px`,
-                        }}
-                      />
-                      <div
-                        className="bg-red-500"
-                        style={{
-                          height: `${(bar.segments[2] / 1000) * chartHeight}px`,
-                        }}
-                      />
+              <p
+                className="mt-2 text-lg text-zinc-800 sm:text-3xl"
+                style={{ fontFamily: '"Times New Roman", serif' }}
+              >
+                Data Science Consulting
+              </p>
+            </header>
+
+            <section className="mx-auto flex w-full max-w-[520px] items-end gap-2 sm:gap-6">
+              <div
+                className="relative hidden w-10 shrink-0 sm:block"
+                style={{ height: `${chartHeight}px` }}
+              >
+                <span className="absolute bottom-0 text-[10px] text-zinc-600">0</span>
+                <span className="absolute bottom-[20%] text-[10px] text-zinc-600">
+                  200
+                </span>
+                <span className="absolute bottom-[40%] text-[10px] text-zinc-600">
+                  400
+                </span>
+                <span className="absolute bottom-[60%] text-[10px] text-zinc-600">
+                  600
+                </span>
+                <span className="absolute bottom-[80%] text-[10px] text-zinc-600">
+                  800
+                </span>
+                <span className="absolute bottom-[96%] text-[10px] text-zinc-600">
+                  1000
+                </span>
+              </div>
+
+              <div className="grid flex-1 grid-cols-3 items-end gap-2 sm:gap-6">
+                {bars.map((bar, barIndex) => (
+                  <div key={bar.label} className="flex min-w-0 flex-col items-center">
+                    <div
+                      className="relative flex w-full items-end justify-center"
+                      style={{ height: `${chartHeight}px` }}
+                    >
+                      {bar.dots.map((dot, i) => (
+                        <span
+                          key={i}
+                          className={`absolute h-2.5 w-2.5 rounded-full sm:h-3 sm:w-3 ${
+                            dotColors[(barIndex + i) % dotColors.length]
+                          }`}
+                          style={{
+                            left: dot.left,
+                            bottom: dot.bottom,
+                          }}
+                        />
+                      ))}
+
+                      <div className="flex w-full max-w-[72px] flex-col overflow-hidden rounded-sm shadow">
+                        <div
+                          className="bg-green-500"
+                          style={{
+                            height: `${(bar.segments[0] / 1000) * chartHeight}px`,
+                          }}
+                        />
+                        <div
+                          className="bg-blue-700"
+                          style={{
+                            height: `${(bar.segments[1] / 1000) * chartHeight}px`,
+                          }}
+                        />
+                        <div
+                          className="bg-red-500"
+                          style={{
+                            height: `${(bar.segments[2] / 1000) * chartHeight}px`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-3 text-2xl font-bold sm:text-4xl">
+                      {bar.label}
                     </div>
                   </div>
+                ))}
+              </div>
+            </section>
+          </div>
 
-                  <div className="mt-3 text-xl font-bold sm:text-3xl">
-                    {bar.label}
-                  </div>
+          <aside className="rounded-[2rem] border border-white/35 bg-emerald-200/25 p-6 shadow-2xl backdrop-blur-md">
+            <h2 className="mb-4 text-3xl text-black sm:text-4xl">
+              Services Offered
+            </h2>
+
+            <div className="space-y-5">
+              {services.map((service) => (
+                <div key={service.title}>
+                  <h3 className="text-xl font-bold text-black sm:text-2xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-1 text-base leading-relaxed text-zinc-900 sm:text-lg">
+                    {service.description}
+                  </p>
                 </div>
               ))}
             </div>
-          </section>
-        </div>
+          </aside>
+        </section>
 
         <div
-          className="relative z-10 mt-3 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-4 sm:flex-row sm:gap-3"
+          className="relative z-10 mt-5 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-6 sm:flex-row sm:gap-3"
           style={{ fontFamily: '"Times New Roman", serif' }}
         >
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
             Precision
           </span>
 
@@ -177,7 +254,7 @@ export default function Home() {
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
             Development
           </span>
 
@@ -185,7 +262,7 @@ export default function Home() {
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-6xl">
             Integration
           </span>
         </div>
