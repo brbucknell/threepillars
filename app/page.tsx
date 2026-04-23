@@ -141,7 +141,7 @@ export default function Home() {
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[420px] flex-1 items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[600px] flex-1 items-end gap-2 sm:gap-6">
               <div
                 className="relative hidden w-10 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
