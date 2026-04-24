@@ -1,5 +1,5 @@
 export default function Home() {
-  const chartHeight = 220;
+  const chartHeight = 160;
 
   const bars = [
     {
@@ -66,6 +66,9 @@ export default function Home() {
     },
   ];
 
+  const panelStyle =
+    "transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,23,42,0.22)]";
+
   return (
     <main className="relative min-h-screen overflow-x-hidden">
       <div
@@ -77,13 +80,13 @@ export default function Home() {
 
       <div className="absolute inset-0 bg-white/10" />
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-6 pb-6 sm:px-6 sm:pt-10">
-        <nav className="mb-5 w-full max-w-[840px] rounded-3xl border border-white/35 bg-white/30 px-4 py-3 shadow-lg backdrop-blur-md">
-          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-8 sm:text-sm sm:tracking-[0.2em]">
+      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-5 pb-5 sm:px-6 sm:pt-8">
+        <nav className="mb-4 w-full max-w-[760px] rounded-2xl border border-white/35 bg-white/35 px-4 py-2 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl">
+          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-7 sm:text-xs sm:tracking-[0.18em]">
             <li>
               <a
                 href="/resume"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
               >
                 Resume
               </a>
@@ -91,7 +94,7 @@ export default function Home() {
             <li>
               <a
                 href="/portfolio"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
               >
                 Portfolio
               </a>
@@ -99,7 +102,7 @@ export default function Home() {
             <li>
               <a
                 href="/about"
-                className="block rounded-full px-3 py-1 transition hover:text-green-900"
+                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
               >
                 About
               </a>
@@ -107,13 +110,15 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section className="grid w-full max-w-[1600px] grid-cols-1 items-stretch justify-items-center gap-4 xl:grid-cols-[0.8fr_1.1fr_0.8fr]">
-          <aside className="flex h-full w-full max-w-[400px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
-            <h2 className="mb-3 text-2xl text-black sm:text-3xl">
+        <section className="grid w-full max-w-[1180px] grid-cols-1 items-stretch justify-items-center gap-4 xl:grid-cols-[0.9fr_1fr_0.9fr]">
+          <aside
+            className={`flex h-full w-full max-w-[320px] flex-col rounded-[1.5rem] border border-red-100/40 bg-red-300/20 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-md ${panelStyle}`}
+          >
+            <h2 className="mb-2 text-xl text-black sm:text-2xl">
               Brief Description
             </h2>
 
-            <div className="space-y-4 text-base leading-relaxed text-zinc-900 sm:text-lg">
+            <div className="space-y-3 text-sm leading-relaxed text-zinc-900 sm:text-base">
               <p>
                 Three Pillars provides practical, results-focused data science
                 consulting.
@@ -125,51 +130,56 @@ export default function Home() {
             </div>
           </aside>
 
-          <div className="flex h-full w-full max-w-[760px] flex-col rounded-[2rem] border border-blue-100/40 bg-sky-300/18 p-5 shadow-2xl backdrop-blur-md sm:p-6">
-            <header className="mb-5 text-center">
+          <div
+            className={`flex h-full w-full max-w-[600px] flex-col rounded-[1.5rem] border border-blue-100/45 bg-sky-300/20 p-4 shadow-[0_22px_55px_rgba(15,23,42,0.18)] backdrop-blur-md sm:p-5 ${panelStyle}`}
+          >
+            <header className="mb-4 text-center">
               <h1
-                className="text-4xl italic leading-tight text-black sm:text-6xl"
+                className="text-3xl italic leading-tight text-black sm:text-4xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Three Pillars
               </h1>
 
               <p
-                className="mt-2 text-lg text-zinc-800 sm:text-3xl"
+                className="mt-1 text-base text-zinc-800 sm:text-xl"
                 style={{ fontFamily: '"Times New Roman", serif' }}
               >
                 Data Science Consulting
               </p>
             </header>
 
-            <section className="mx-auto flex w-full max-w-[560px] flex-1 items-end gap-2 sm:gap-6">
+            <section className="mx-auto flex w-full max-w-[450px] flex-1 items-end gap-2 sm:gap-4">
               <div
-                className="relative hidden w-10 shrink-0 sm:block"
+                className="relative hidden w-8 shrink-0 sm:block"
                 style={{ height: `${chartHeight}px` }}
               >
-                <span className="absolute bottom-0 text-[10px] text-zinc-700">
+                <span className="absolute bottom-0 text-[9px] text-zinc-700">
                   0
                 </span>
-                <span className="absolute bottom-[20%] text-[10px] text-zinc-700">
+                <span className="absolute bottom-[20%] text-[9px] text-zinc-700">
                   200
                 </span>
-                <span className="absolute bottom-[40%] text-[10px] text-zinc-700">
+                <span className="absolute bottom-[40%] text-[9px] text-zinc-700">
                   400
                 </span>
-                <span className="absolute bottom-[60%] text-[10px] text-zinc-700">
+                <span className="absolute bottom-[60%] text-[9px] text-zinc-700">
                   600
                 </span>
-                <span className="absolute bottom-[80%] text-[10px] text-zinc-700">
+                <span className="absolute bottom-[80%] text-[9px] text-zinc-700">
                   800
                 </span>
-                <span className="absolute bottom-[96%] text-[10px] text-zinc-700">
+                <span className="absolute bottom-[96%] text-[9px] text-zinc-700">
                   1000
                 </span>
               </div>
 
-              <div className="grid flex-1 grid-cols-3 items-end gap-2 sm:gap-6">
+              <div className="grid flex-1 grid-cols-3 items-end gap-2 sm:gap-4">
                 {bars.map((bar, barIndex) => (
-                  <div key={bar.label} className="flex min-w-0 flex-col items-center">
+                  <div
+                    key={bar.label}
+                    className="flex min-w-0 flex-col items-center"
+                  >
                     <div
                       className="relative flex w-full items-end justify-center"
                       style={{ height: `${chartHeight}px` }}
@@ -177,7 +187,7 @@ export default function Home() {
                       {bar.dots.map((dot, i) => (
                         <span
                           key={i}
-                          className={`absolute h-2.5 w-2.5 rounded-full sm:h-3 sm:w-3 ${
+                          className={`absolute h-2 w-2 rounded-full sm:h-2.5 sm:w-2.5 ${
                             dotColors[(barIndex + i) % dotColors.length]
                           }`}
                           style={{
@@ -187,29 +197,35 @@ export default function Home() {
                         />
                       ))}
 
-                      <div className="flex w-full max-w-[72px] flex-col overflow-hidden rounded-sm shadow">
+                      <div className="flex w-full max-w-[54px] flex-col overflow-hidden rounded-sm shadow-md">
                         <div
                           className="bg-green-500"
                           style={{
-                            height: `${(bar.segments[0] / 1000) * chartHeight}px`,
+                            height: `${
+                              (bar.segments[0] / 1000) * chartHeight
+                            }px`,
                           }}
                         />
                         <div
                           className="bg-blue-700"
                           style={{
-                            height: `${(bar.segments[1] / 1000) * chartHeight}px`,
+                            height: `${
+                              (bar.segments[1] / 1000) * chartHeight
+                            }px`,
                           }}
                         />
                         <div
                           className="bg-red-500"
                           style={{
-                            height: `${(bar.segments[2] / 1000) * chartHeight}px`,
+                            height: `${
+                              (bar.segments[2] / 1000) * chartHeight
+                            }px`,
                           }}
                         />
                       </div>
                     </div>
 
-                    <div className="mt-3 text-xl font-bold sm:text-3xl">
+                    <div className="mt-2 text-lg font-bold sm:text-2xl">
                       {bar.label}
                     </div>
                   </div>
@@ -218,16 +234,23 @@ export default function Home() {
             </section>
           </div>
 
-          <aside className="flex h-full w-full max-w-[400px] flex-col rounded-[2rem] border border-red-100/35 bg-red-300/18 p-5 shadow-xl backdrop-blur-md">
-            <h2 className="mb-3 text-2xl text-black sm:text-3xl">
-              Services
-            </h2>
+          <aside
+            className={`flex h-full w-full max-w-[320px] flex-col rounded-[1.5rem] border border-red-100/40 bg-red-300/20 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-md ${panelStyle}`}
+          >
+            <h2 className="mb-2 text-xl text-black sm:text-2xl">Services</h2>
 
-            <div className="space-y-4 text-sm sm:text-base">
+            <div className="space-y-3 text-xs sm:text-sm">
               {services.map((service) => (
-                <div key={service.title}>
-                  <p className="font-semibold text-black">{service.title}</p>
-                  <p className="text-zinc-900">{service.description}</p>
+                <div
+                  key={service.title}
+                  className="rounded-xl border border-white/20 bg-white/15 p-2.5 transition hover:bg-white/25"
+                >
+                  <p className="font-semibold leading-snug text-black">
+                    {service.title}
+                  </p>
+                  <p className="mt-0.5 leading-snug text-zinc-900">
+                    {service.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -235,26 +258,26 @@ export default function Home() {
         </section>
 
         <div
-          className="relative z-10 mt-5 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-6 sm:flex-row sm:gap-3"
+          className="relative z-10 mt-4 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-5 sm:flex-row sm:gap-3"
           style={{ fontFamily: '"Times New Roman", serif' }}
         >
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
             Precision
           </span>
 
-          <span className="hidden text-4xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
+          <span className="hidden text-3xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
             Development
           </span>
 
-          <span className="hidden text-4xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
+          <span className="hidden text-3xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
             •
           </span>
 
-          <span className="text-2xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-5xl">
+          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
             Integration
           </span>
         </div>
