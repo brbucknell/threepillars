@@ -272,7 +272,14 @@ export default function PortfolioPage() {
             <div className="grid gap-6 lg:grid-cols-2">
               <div>
                 <div className="mb-4 flex h-64 items-center justify-center bg-zinc-100 text-sm text-zinc-500">
-                  Expanded project preview
+               =
+  <Image
+    src={selectedProject.image}
+    alt={selectedProject.title}
+    fill
+    className="object-cover"
+  />
+
                 </div>
 
                 <h3 className="text-lg font-semibold text-black">
