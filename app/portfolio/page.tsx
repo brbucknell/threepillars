@@ -38,7 +38,7 @@ import matplotlib.pyplot as plt
 def load_income_data(path):
     return pd.read_csv(path)
 
-def load_housing_data(path):
+def load__data(path):
     return pd.read_csv(path)
 
 def clean_income(df):
@@ -68,7 +68,7 @@ def plot_affordability(df):
     plt.show()`,
     github: "#",
     demo: "#",
-    articleLink: "/articles/housing-affordability.pdf",
+    articleLink: "/articles/housing1.pdf",
   },
   {
     id: 2,
