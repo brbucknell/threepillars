@@ -33,20 +33,103 @@ const projects: Project[] = [
       "The affordability gap widened significantly across the decade",
     ],
     code: `import pandas as pd
+
+def load_income_data(path):
+    df = pd.read_csv(path)
+    return df
+
+def load_housing_data(path):
+    df = pd.read_csv(path)
+    return df
+import pandas as pd
+
+def clean_income(df):
+    df = df.rename(columns={"REF_DATE": "year", "VALUE": "income"})
+    df = df[["year", "income"]]
+    df = df.dropna()
+    return df
+
+def clean_housing(df):
+    df = df.rename(columns={"REF_DATE": "year", "VALUE": "housing"})
+    df = df[["year", "housing"]]
+    df = df.dropna()
+    return df
+
+def merge_data(income_df, housing_df):
+    df = pd.merge(income_df, housing_df, on="year", how="inner")
+    return df
+
+def create_index(df):
+    df["income_index"] = df["income"] / df["income"].iloc[0] * 100
+    df["housing_index"] = df["housing"] / df["housing"].iloc[0] * 100
+    return df
+
+def calculate_growth(df):
+    income_growth = (df["income"].iloc[-1] / df["income"].iloc[0] - 1) * 100
+    housing_growth = (df["housing"].iloc[-1] / df["housing"].iloc[0] - 1) * 100
+
+    return {
+        "income_growth": income_growth,
+        "housing_growth": housing_growth
+    }
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("housing_income.csv")
+def plot_affordability(df, save_path=None):
+    plt.figure(figsize=(10, 6))
 
-plt.figure(figsize=(10, 6))
-plt.plot(df["year"], df["income"], label="Real Income")
-plt.plot(df["year"], df["housing"], label="Housing Costs")
+    plt.plot(df["year"], df["income_index"], label="Real Income", linewidth=2)
+    plt.plot(df["year"], df["housing_index"], label="Housing Costs", linewidth=2)
 
-plt.title("Housing Costs vs Real Income in Canada")
-plt.xlabel("Year")
-plt.ylabel("Indexed Change / Value")
-plt.legend()
+    plt.title("Housing Costs vs Real Income in Canada")
+    plt.xlabel("Year")
+    plt.ylabel("Indexed (Base Year = 100)")
 
-plt.show()`,
+    plt.legend()
+
+    plt.figtext(
+        0.5,
+        0.02,
+        "Housing costs have significantly outpaced income growth, indicating declining affordability.",
+        ha="center",
+        fontsize=9,
+        style="italic",
+        wrap=True
+    )
+
+    plt.tight_layout(rect=[0, 0.05, 1, 1])
+
+    if save_path:
+        plt.savefig(save_path, dpi=300)
+
+    plt.show()
+from src.load_data import load_income_data, load_housing_data
+from src.clean_data import clean_income, clean_housing, merge_data
+from src.analysis import create_index, calculate_growth
+from src.visualize import plot_affordability
+
+# Load
+income = load_income_data("data/raw/income.csv")
+housing = load_housing_data("data/raw/housing.csv")
+
+# Clean
+income_clean = clean_income(income)
+housing_clean = clean_housing(housing)
+
+# Merge
+df = merge_data(income_clean, housing_clean)
+
+# Analysis
+df = create_index(df)
+growth = calculate_growth(df)
+
+print("Growth Stats:")
+print(growth)
+
+# Visualization
+plot_affordability(df, save_path="outputs/figures/affordability.png")
+
+
+`,
     github: "#",
     demo: "#",
     articleLink: "#",
