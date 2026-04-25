@@ -22,7 +22,7 @@ const projects: Project[] = [
     id: 1,
     title: "Housing vs Income: A Canadian Affordability Analysis",
     category: "Data Analysis",
-    image: "/public/affordability.png",
+    image: "/affordability.png",
     summary:
       "An analysis of Canadian housing affordability trends comparing housing costs to real income over time.",
     article:
@@ -221,12 +221,14 @@ export default function PortfolioPage() {
                 className="rounded-sm bg-white p-4 text-left shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition hover:-translate-y-1"
               >
              <div className="mb-4 relative h-36 w-full overflow-hidden rounded-sm bg-zinc-100">
+
   <Image
-    src=""
-    alt="Housing vs Income chart"
+    src={project.image}
+    alt={project.title}
     fill
     className="object-cover"
   />
+
 </div>
 
                 <p className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
