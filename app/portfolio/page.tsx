@@ -22,7 +22,7 @@ const projects: Project[] = [
     id: 1,
     title: "Housing vs Income: A Canadian Affordability Analysis",
     category: "Data Analysis",
-    image: "/affordability.png",
+    image: "/Affordability.png",
     summary:
       "An analysis of Canadian housing affordability trends comparing housing costs to real income over time.",
     article:
