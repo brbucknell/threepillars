@@ -26,7 +26,11 @@ const projects: Project[] = [
     summary:
       "An analysis of Canadian housing affordability trends comparing housing costs to real income over time.",
     article:
-      "This project analyzes Canadian housing affordability by comparing housing cost growth to real income trends between 2012 and 2023. Using publicly available datasets, the analysis reveals a significant divergence: housing costs increased by over 50% while real income stagnated or declined.",
+      "This study examines trends in housing affordability in Canada over the period 2012–2023 by analyzing the relationship between income, housing costs, and inflation. 
+      Using national-level data, variables were standardized and adjusted for inflation to enable meaningful longitudinal comparison.
+  Exploratory data analysis and statistical modeling were employed to assess patterns,
+  relationships, and the extent to which housing costs have diverged from income over time."
+
     insights: [
       "Housing costs increased by over 50% between 2012 and 2023",
       "Real income remained flat or declined over the same period",
