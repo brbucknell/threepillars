@@ -26,113 +26,49 @@ const projects: Project[] = [
     summary:
       "An analysis of Canadian housing affordability trends comparing housing costs to real income over time.",
     article:
-      "This study examines trends in housing affordability in Canada over the period 2012–2023 by analyzing the relationship between income, housing costs, and inflation. Using national-level data, variables were standardized and adjusted for inflation to enable meaningful longitudinal comparison.Exploratory data analysis and statistical modeling were employed to assess patterns,relationships, and the extent to which housing costs have diverged from income over time.",
+      "This study examines trends in housing affordability in Canada over the period 2012–2023 by analyzing the relationship between income, housing costs, and inflation. Using national-level data, variables were standardized and adjusted for inflation to enable meaningful longitudinal comparison. Exploratory data analysis and statistical modeling were used to assess patterns, relationships, and the extent to which housing costs have diverged from income over time.",
     insights: [
-      "Housing costs increased by over 50% between 2012 and 2023",
-      "Real income remained flat or declined over the same period",
-      "The affordability gap widened significantly across the decade",
+      "Housing costs increased by over 50% between 2012 and 2023.",
+      "Real income remained flat or declined over the same period.",
+      "The affordability gap widened significantly across the decade.",
     ],
     code: `import pandas as pd
+import matplotlib.pyplot as plt
 
 def load_income_data(path):
-    df = pd.read_csv(path)
-    return df
+    return pd.read_csv(path)
 
 def load_housing_data(path):
-    df = pd.read_csv(path)
-    return df
-import pandas as pd
+    return pd.read_csv(path)
 
 def clean_income(df):
     df = df.rename(columns={"REF_DATE": "year", "VALUE": "income"})
-    df = df[["year", "income"]]
-    df = df.dropna()
-    return df
+    return df[["year", "income"]].dropna()
 
 def clean_housing(df):
     df = df.rename(columns={"REF_DATE": "year", "VALUE": "housing"})
-    df = df[["year", "housing"]]
-    df = df.dropna()
-    return df
+    return df[["year", "housing"]].dropna()
 
 def merge_data(income_df, housing_df):
-    df = pd.merge(income_df, housing_df, on="year", how="inner")
-    return df
+    return pd.merge(income_df, housing_df, on="year", how="inner")
 
 def create_index(df):
     df["income_index"] = df["income"] / df["income"].iloc[0] * 100
     df["housing_index"] = df["housing"] / df["housing"].iloc[0] * 100
     return df
 
-def calculate_growth(df):
-    income_growth = (df["income"].iloc[-1] / df["income"].iloc[0] - 1) * 100
-    housing_growth = (df["housing"].iloc[-1] / df["housing"].iloc[0] - 1) * 100
-
-    return {
-        "income_growth": income_growth,
-        "housing_growth": housing_growth
-    }
-import matplotlib.pyplot as plt
-
-def plot_affordability(df, save_path=None):
+def plot_affordability(df):
     plt.figure(figsize=(10, 6))
-
-    plt.plot(df["year"], df["income_index"], label="Real Income", linewidth=2)
-    plt.plot(df["year"], df["housing_index"], label="Housing Costs", linewidth=2)
-
+    plt.plot(df["year"], df["income_index"], label="Real Income")
+    plt.plot(df["year"], df["housing_index"], label="Housing Costs")
     plt.title("Housing Costs vs Real Income in Canada")
     plt.xlabel("Year")
-    plt.ylabel("Indexed (Base Year = 100)")
-
+    plt.ylabel("Indexed Growth")
     plt.legend()
-
-    plt.figtext(
-        0.5,
-        0.02,
-        "Housing costs have significantly outpaced income growth, indicating declining affordability.",
-        ha="center",
-        fontsize=9,
-        style="italic",
-        wrap=True
-    )
-
-    plt.tight_layout(rect=[0, 0.05, 1, 1])
-
-    if save_path:
-        plt.savefig(save_path, dpi=300)
-
-    plt.show()
-from src.load_data import load_income_data, load_housing_data
-from src.clean_data import clean_income, clean_housing, merge_data
-from src.analysis import create_index, calculate_growth
-from src.visualize import plot_affordability
-
-# Load
-income = load_income_data("data/raw/income.csv")
-housing = load_housing_data("data/raw/housing.csv")
-
-# Clean
-income_clean = clean_income(income)
-housing_clean = clean_housing(housing)
-
-# Merge
-df = merge_data(income_clean, housing_clean)
-
-# Analysis
-df = create_index(df)
-growth = calculate_growth(df)
-
-print("Growth Stats:")
-print(growth)
-
-# Visualization
-plot_affordability(df, save_path="outputs/figures/affordability.png")
-
-
-`,
+    plt.show()`,
     github: "#",
     demo: "#",
-    articleLink: "#",
+    articleLink: "/articles/housing-affordability.pdf",
   },
   {
     id: 2,
@@ -292,7 +228,7 @@ export default function PortfolioPage() {
                 </div>
 
                 <h3 className="text-lg font-semibold text-black">
-                  Article Preview
+                  Project Summary
                 </h3>
 
                 <p className="mt-3 text-sm leading-7 text-zinc-700">
@@ -338,12 +274,16 @@ export default function PortfolioPage() {
                     Live Preview
                   </a>
 
-                  <a
-                    href={selectedProject.articleLink || "#"}
-                    className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
-                  >
-                    Read Article
-                  </a>
+                  {selectedProject.articleLink && (
+                    <a
+                      href={selectedProject.articleLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-100"
+                    >
+                      Read Full Paper PDF
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
