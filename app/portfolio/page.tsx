@@ -68,7 +68,7 @@ def plot_affordability(df):
     plt.show()`,
     github: "#",
     demo: "#",
-    articleLink: "housing1.pdf",
+    articleLink: "Housing1.pdf",
   },
   {
     id: 2,
