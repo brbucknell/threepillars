@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
   const chartHeight = 160;
 
   const bars = [
@@ -81,7 +87,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-white/10" />
 
       <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-5 pb-5 sm:px-6 sm:pt-8">
-        <nav className="mb-4 w-full max-w-[760px] rounded-2xl border border-white/35 bg-white/35 px-4 py-2 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl">
+        <nav className="mb-4 w-full max-w-[860px] -translate-x-6 rounded-2xl border border-white/35 bg-white/35 px-4 py-2 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl sm:-translate-x-10">
           <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-7 sm:text-xs sm:tracking-[0.18em]">
             <li>
               <a
@@ -91,6 +97,7 @@ export default function Home() {
                 Resume
               </a>
             </li>
+
             <li>
               <a
                 href="/portfolio"
@@ -99,6 +106,7 @@ export default function Home() {
                 Portfolio
               </a>
             </li>
+
             <li>
               <a
                 href="/about"
@@ -106,6 +114,15 @@ export default function Home() {
               >
                 About
               </a>
+            </li>
+
+            <li>
+              <button
+                onClick={() => setShowModal(true)}
+                className="rounded-full border border-white/40 bg-white/30 px-4 py-1 text-zinc-900 backdrop-blur-md transition hover:bg-white/55 hover:text-green-900"
+              >
+                Book a Consultation
+              </button>
             </li>
           </ul>
         </nav>
@@ -282,6 +299,53 @@ export default function Home() {
           </span>
         </div>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 backdrop-blur-sm">
+          <div className="relative w-full max-w-md rounded-2xl border border-white/40 bg-white/70 p-6 shadow-2xl backdrop-blur-xl">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute right-4 top-3 text-2xl font-bold text-zinc-700 hover:text-black"
+            >
+              ×
+            </button>
+
+            <h2 className="mb-4 text-xl font-semibold text-black">
+              Book a Consultation
+            </h2>
+
+            <form className="space-y-3">
+              <input
+                type="text"
+                placeholder="Your name"
+                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
+                required
+              />
+
+              <input
+                type="email"
+                placeholder="Your email"
+                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
+                required
+              />
+
+              <textarea
+                placeholder="What can I help you with?"
+                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
+                rows={4}
+                required
+              />
+
+              <button
+                type="submit"
+                className="w-full rounded-full border border-white/40 bg-white/45 py-2 font-semibold text-zinc-900 backdrop-blur-md transition hover:bg-white/65 hover:text-green-900"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
