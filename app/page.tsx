@@ -216,7 +216,7 @@ export default function Home() {
 
                       <div className="flex w-full max-w-[54px] flex-col overflow-hidden rounded-sm shadow-md">
                         <div
-                          className="bg-green-500"
+                          className="bg-green-1000"
                           style={{
                             height: `${
                               (bar.segments[0] / 1000) * chartHeight
@@ -224,7 +224,7 @@ export default function Home() {
                           }}
                         />
                         <div
-                          className="bg-blue-700"
+                          className="bg-blue-1000"
                           style={{
                             height: `${
                               (bar.segments[1] / 1000) * chartHeight
@@ -232,7 +232,7 @@ export default function Home() {
                           }}
                         />
                         <div
-                          className="bg-red-500"
+                          className="bg-red-1000"
                           style={{
                             height: `${
                               (bar.segments[2] / 1000) * chartHeight
