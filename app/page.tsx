@@ -219,7 +219,7 @@ export default function Home() {
                           className="bg-green-900"
                           style={{
                             height: `${
-                              (bar.segments[0] / 2000) * chartHeight
+                              (bar.segments[0] / 500) * chartHeight
                             }px`,
                           }}
                         />
@@ -227,7 +227,7 @@ export default function Home() {
                           className="bg-blue-900"
                           style={{
                             height: `${
-                              (bar.segments[1] / 2000) * chartHeight
+                              (bar.segments[1] / 500) * chartHeight
                             }px`,
                           }}
                         />
@@ -235,7 +235,7 @@ export default function Home() {
                           className="bg-red-900"
                           style={{
                             height: `${
-                              (bar.segments[2] / 2000) * chartHeight
+                              (bar.segments[2] / 500) * chartHeight
                             }px`,
                           }}
                         />
