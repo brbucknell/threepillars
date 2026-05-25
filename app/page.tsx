@@ -265,7 +265,7 @@ function AboutSection() {
   return (
     <section style={styles.about}>
       <div style={styles.sectionInner}>
-        <h2 style={styles.sectionHeading}>About</h2>
+        <h2 style={styles.sectionHeading}></h2>
       </div>
     </section>
   );
@@ -275,7 +275,7 @@ function ServicesSection() {
   return (
     <section style={styles.services}>
       <div style={styles.sectionInner}>
-        <h2 style={styles.sectionHeading}>Services</h2>
+        <h2 style={styles.sectionHeading}></h2>
       </div>
     </section>
   );
