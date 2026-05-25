@@ -1,351 +1,643 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [showModal, setShowModal] = useState(false);
+type NavItem = {
+  label: string;
+  hasDropdown: boolean;
+};
 
-  const chartHeight = 160;
+type Service = {
+  title: string;
+  desc: string;
+  extra: string;
+  color: string;
+};
 
-  const bars = [
-    {
-      label: "A",
-      segments: [150, 160, 420],
-      dots: [
-        { left: "18%", bottom: "74%" },
-        { left: "28%", bottom: "72%" },
-        { left: "38%", bottom: "75%" },
-      ],
-    },
-    {
-      label: "B",
-      segments: [150, 180, 470],
-      dots: [
-        { left: "22%", bottom: "77%" },
-        { left: "35%", bottom: "82%" },
-        { left: "45%", bottom: "79%" },
-        { left: "30%", bottom: "74%" },
-      ],
-    },
-    {
-      label: "C",
-      segments: [170, 190, 500],
-      dots: [
-        { left: "15%", bottom: "84%" },
-        { left: "25%", bottom: "91%" },
-        { left: "38%", bottom: "86%" },
-        { left: "50%", bottom: "94%" },
-        { left: "62%", bottom: "82%" },
-        { left: "70%", bottom: "89%" },
-      ],
-    },
-  ];
+const NAV_ITEMS: NavItem[] = [
+  { label: "Home", hasDropdown: true },
+  { label: "About Us", hasDropdown: false },
+  { label: "Pages", hasDropdown: true },
+  { label: "Services", hasDropdown: true },
+  { label: "Blog", hasDropdown: true },
+  { label: "Contact", hasDropdown: false },
+];
 
-  const dotColors = [
-    "bg-lime-400/80",
-    "bg-sky-300/80",
-    "bg-violet-400/80",
-    "bg-green-300/80",
-    "bg-blue-300/80",
-  ];
+const SERVICES: Service[] = [
+  {
+    title: "Data Science",
+    desc: "Analytics & machine learning",
+    extra: "Clear insights, dashboards, forecasting, and responsible machine learning.",
+    color: "#f5c400",
+  },
+  {
+    title: "Web Development",
+    desc: "Modern websites & platforms",
+    extra: "Responsive, professional websites built for clarity, trust, and usability.",
+    color: "#7c6bd6",
+  },
+  {
+    title: "Automation",
+    desc: "Workflows & smart systems",
+    extra: "Automated processes that reduce repetitive work and improve efficiency.",
+    color: "#f35bdc",
+  },
+  {
+    title: "IT Solutions",
+    desc: "Support & infrastructure",
+    extra: "Practical technical support, troubleshooting, systems, and digital setup.",
+    color: "#607d67",
+  },
+  {
+    title: "Research & Strategy",
+    desc: "Data-driven decision making",
+    extra: "Research, planning, and analysis to support better technology decisions.",
+    color: "#ff8748",
+  },
+  {
+    title: "Human-Centered Tech",
+    desc: "Ethical & accessible design",
+    extra: "Technology shaped around real people, accessibility, and meaningful outcomes.",
+    color: "#59b7ef",
+  },
+];
 
-  const services = [
-    {
-      title: "Data Insights & Decision Support",
-      description: "Understanding what’s happening and why.",
-    },
-    {
-      title: "Dashboards & Data Visualization",
-      description: "Making data easy to understand and act on.",
-    },
-    {
-      title: "Predictive Analytics & Machine Learning",
-      description: "Using data to forecast and optimize outcomes.",
-    },
-    {
-      title: "Data Infrastructure & Automation",
-      description: "Building reliable systems and workflows.",
-    },
-    {
-      title: "Strategy, Experimentation & Enablement",
-      description: "Turning data into long-term business value.",
-    },
-  ];
+const servicePositions: React.CSSProperties[] = [
+  { top: "30%", left: "6%" },
+  { top: "7%", left: "27%" },
+  { top: "30%", left: "49%" },
+  { top: "8%", right: "8%" },
+  { bottom: "7%", left: "27%" },
+  { bottom: "5%", right: "13%" },
+];
 
-  const panelStyle =
-    "transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(15,23,42,0.22)]";
+function useViewportMode() {
+  const [mode, setMode] = useState<"mobile" | "tablet" | "desktop">("desktop");
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const width = window.innerWidth;
+
+      if (width <= 640) {
+        setMode("mobile");
+      } else if (width <= 1024) {
+        setMode("tablet");
+      } else {
+        setMode("desktop");
+      }
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  return mode;
+}
+
+function ChevronDown() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      style={{ display: "inline", marginLeft: 4 }}
+    >
+      <path
+        d="M2 4L6 8L10 4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Navbar() {
+  const [open, setOpen] = useState(false);
+  const mode = useViewportMode();
+  const isMobile = mode === "mobile";
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/background1.jpg')",
-        }}
-      />
-
-      <div className="absolute inset-0 bg-white/10" />
-
-      <div className="relative z-10 flex min-h-screen flex-col items-center px-4 pt-5 pb-5 sm:px-6 sm:pt-8">
-        <nav className="mb-4 w-full max-w-[860px] -translate-x-6 rounded-2xl border border-white/35 bg-white/35 px-4 py-2 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-xl sm:-translate-x-10">
-          <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-zinc-900 sm:gap-x-7 sm:text-xs sm:tracking-[0.18em]">
-            <li>
-              <a
-                href="/resume"
-                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
-              >
-                Resume
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="/portfolio"
-                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
-              >
-                Portfolio
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="/about"
-                className="block rounded-full px-3 py-1 transition hover:bg-white/30 hover:text-green-900"
-              >
-                About
-              </a>
-            </li>
-
-            <li>
-              <button
-                onClick={() => setShowModal(true)}
-                className="rounded-full border border-white/40 bg-white/30 px-4 py-1 text-zinc-900 backdrop-blur-md transition hover:bg-white/55 hover:text-green-900"
-              >
-                Book a Consultation
-              </button>
-            </li>
-          </ul>
-        </nav>
-
-        <section className="grid w-full max-w-[1180px] grid-cols-1 items-stretch justify-items-center gap-4 xl:grid-cols-[0.9fr_1fr_0.9fr]">
-          <aside
-            className={`flex h-full w-full max-w-[320px] flex-col rounded-[1.5rem] border border-red-100/40 bg-red-300/20 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-md ${panelStyle}`}
-          >
-            <h2 className="mb-2 text-xl text-black sm:text-2xl">
-              Brief Description
-            </h2>
-
-            <div className="space-y-3 text-sm leading-relaxed text-zinc-900 sm:text-base">
-              <p>
-                Three Pillars provides practical, results-focused data science
-                consulting.
-              </p>
-              <p>
-                From raw data to actionable insight, the goal is clarity,
-                reliability, and real-world impact.
-              </p>
-            </div>
-          </aside>
-
-          <div
-            className={`flex h-full w-full max-w-[600px] flex-col rounded-[1.5rem] border border-blue-100/45 bg-sky-300/20 p-4 shadow-[0_22px_55px_rgba(15,23,42,0.18)] backdrop-blur-md sm:p-5 ${panelStyle}`}
-          >
-            <header className="mb-4 text-center">
-              <h1
-                className="text-3xl italic leading-tight text-black sm:text-4xl"
-                style={{ fontFamily: '"Times New Roman", serif' }}
-              >
-                Three Pillars
-              </h1>
-
-              <p
-                className="mt-1 text-base text-zinc-800 sm:text-xl"
-                style={{ fontFamily: '"Times New Roman", serif' }}
-              >
-                Data Science Consulting
-              </p>
-            </header>
-
-            <section className="mx-auto flex w-full max-w-[450px] flex-1 items-end gap-2 sm:gap-4">
-              <div
-                className="relative hidden w-8 shrink-0 sm:block"
-                style={{ height: `${chartHeight}px` }}
-              >
-                <span className="absolute bottom-0 text-[9px] text-zinc-700">
-                  0
-                </span>
-                <span className="absolute bottom-[20%] text-[9px] text-zinc-700">
-                  200
-                </span>
-                <span className="absolute bottom-[40%] text-[9px] text-zinc-700">
-                  400
-                </span>
-                <span className="absolute bottom-[60%] text-[9px] text-zinc-700">
-                  600
-                </span>
-                <span className="absolute bottom-[80%] text-[9px] text-zinc-700">
-                  800
-                </span>
-                <span className="absolute bottom-[96%] text-[9px] text-zinc-700">
-                  1000
-                </span>
-              </div>
-
-              <div className="grid flex-1 grid-cols-3 items-end gap-2 sm:gap-4">
-                {bars.map((bar, barIndex) => (
-                  <div
-                    key={bar.label}
-                    className="flex min-w-0 flex-col items-center"
-                  >
-                    <div
-                      className="relative flex w-full items-end justify-center"
-                      style={{ height: `${chartHeight}px` }}
-                    >
-                      {bar.dots.map((dot, i) => (
-                        <span
-                          key={i}
-                          className={`absolute h-2 w-2 rounded-full sm:h-2.5 sm:w-2.5 ${
-                            dotColors[(barIndex + i) % dotColors.length]
-                          }`}
-                          style={{
-                            left: dot.left,
-                            bottom: dot.bottom,
-                          }}
-                        />
-                      ))}
-
-                      <div className="flex w-full max-w-[54px] flex-col overflow-hidden rounded-sm shadow-md">
-                        <div
-                          className="bg-green-900"
-                          style={{
-                            height: `${
-                              (bar.segments[0] / 500) * chartHeight
-                            }px`,
-                          }}
-                        />
-                        <div
-                          className="bg-blue-900"
-                          style={{
-                            height: `${
-                              (bar.segments[1] / 500) * chartHeight
-                            }px`,
-                          }}
-                        />
-                        <div
-                          className="bg-red-900"
-                          style={{
-                            height: `${
-                              (bar.segments[2] / 500) * chartHeight
-                            }px`,
-                          }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="mt-2 text-lg font-bold sm:text-2xl">
-                      {bar.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-
-          <aside
-            className={`flex h-full w-full max-w-[320px] flex-col rounded-[1.5rem] border border-red-100/40 bg-red-300/20 p-4 shadow-[0_18px_45px_rgba(15,23,42,0.16)] backdrop-blur-md ${panelStyle}`}
-          >
-            <h2 className="mb-2 text-xl text-black sm:text-2xl">Services</h2>
-
-            <div className="space-y-3 text-xs sm:text-sm">
-              {services.map((service) => (
-                <div
-                  key={service.title}
-                  className="rounded-xl border border-white/20 bg-white/15 p-2.5 transition hover:bg-white/25"
-                >
-                  <p className="font-semibold leading-snug text-black">
-                    {service.title}
-                  </p>
-                  <p className="mt-0.5 leading-snug text-zinc-900">
-                    {service.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </section>
-
-        <div
-          className="relative z-10 mt-4 flex w-full flex-col items-center justify-center gap-1 text-center sm:mt-5 sm:flex-row sm:gap-3"
-          style={{ fontFamily: '"Times New Roman", serif' }}
-        >
-          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
-            Precision
-          </span>
-
-          <span className="hidden text-3xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
-            •
-          </span>
-
-          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
-            Development
-          </span>
-
-          <span className="hidden text-3xl text-black [text-shadow:0_2px_4px_rgba(255,255,255,0.55)] sm:inline">
-            •
-          </span>
-
-          <span className="text-xl font-semibold tracking-wide text-green-950 [text-shadow:0_3px_6px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.45)] sm:text-4xl">
-            Integration
-          </span>
-        </div>
-      </div>
-
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-md rounded-2xl border border-white/40 bg-white/70 p-6 shadow-2xl backdrop-blur-xl">
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute right-4 top-3 text-2xl font-bold text-zinc-700 hover:text-black"
-            >
-              ×
+    <nav style={styles.nav}>
+      {!isMobile && (
+        <div style={styles.navPill}>
+          {NAV_ITEMS.map((item) => (
+            <button key={item.label} style={styles.navBtn}>
+              {item.label}
+              {item.hasDropdown && <ChevronDown />}
             </button>
-
-            <h2 className="mb-4 text-xl font-semibold text-black">
-              Book a Consultation
-            </h2>
-
-            <form className="space-y-3">
-              <input
-                type="text"
-                placeholder="Your name"
-                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
-                required
-              />
-
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
-                required
-              />
-
-              <textarea
-                placeholder="What can I help you with?"
-                className="w-full rounded-lg border border-white/40 bg-white/60 p-2 text-black placeholder:text-zinc-600 backdrop-blur-md outline-none focus:border-green-900/50"
-                rows={4}
-                required
-              />
-
-              <button
-                type="submit"
-                className="w-full rounded-full border border-white/40 bg-white/45 py-2 font-semibold text-zinc-900 backdrop-blur-md transition hover:bg-white/65 hover:text-green-900"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+          ))}
         </div>
       )}
+
+      {isMobile && (
+        <button style={styles.hamburger} onClick={() => setOpen(!open)}>
+          <span style={styles.bar} />
+          <span style={styles.bar} />
+          <span style={styles.bar} />
+        </button>
+      )}
+
+      {isMobile && open && (
+        <div style={styles.mobileMenu}>
+          {NAV_ITEMS.map((item) => (
+            <button key={item.label} style={styles.mobileNavBtn}>
+              {item.label}
+              {item.hasDropdown && <ChevronDown />}
+            </button>
+          ))}
+        </div>
+      )}
+    </nav>
+  );
+}
+
+function Hero() {
+  const mode = useViewportMode();
+  const isMobile = mode === "mobile";
+  const isTablet = mode === "tablet";
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+  return (
+    <section style={styles.hero}>
+      <div style={styles.heroBg} />
+      <div
+        style={{
+          ...styles.heroContent,
+          ...(isTablet ? styles.tabletHeroContent : {}),
+          ...(isMobile ? styles.mobileHeroContent : {}),
+        }}
+      >
+        <div style={styles.heroText}>
+          <img src="/logo.png" alt="Three Pillars Logo" style={styles.heroLogo} />
+
+        <div style={styles.email}>
+  <button
+    type="button"
+    style={styles.emailButton}
+  >
+    bryan@threepillars.dev
+  </button>
+</div>
+
+
+
+          <p style={styles.heroSub}>
+            Leveraging Technology To Benefit Our Personal Lives,
+            Our Communities And The World At Large.
+          </p>
+        </div>
+
+        <div
+          style={{
+            ...styles.servicesStage,
+            ...(isTablet ? styles.tabletServicesStage : {}),
+            ...(isMobile ? styles.mobileServicesStage : {}),
+          }}
+        >
+          {SERVICES.map((service, index) => {
+            const isHovered = hoveredService === index;
+
+            return (
+              <div
+                key={service.title}
+                onMouseEnter={() => setHoveredService(index)}
+                onMouseLeave={() => setHoveredService(null)}
+                style={{
+                  ...styles.serviceBox,
+                  backgroundColor: service.color,
+                  ...(!isMobile && !isTablet ? servicePositions[index] : {}),
+                  ...(isTablet ? styles.tabletServiceBox : {}),
+                  ...(isMobile ? styles.mobileServiceBox : {}),
+                  ...(isHovered && !isMobile ? styles.serviceBoxHover : {}),
+                }}
+              >
+                <div style={styles.innerCard}>
+                  <p style={styles.serviceLabel}>SERVICE</p>
+
+                  <h3
+                    style={{
+                      ...styles.serviceTitle,
+                      ...(isMobile ? styles.mobileServiceTitle : {}),
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      ...styles.serviceDesc,
+                      ...(isMobile ? styles.mobileServiceDesc : {}),
+                    }}
+                  >
+                    {service.desc}
+                  </p>
+
+                  <p
+                    style={{
+                      ...styles.serviceExtra,
+                      ...(isHovered || isTablet || isMobile
+                        ? styles.serviceExtraVisible
+                        : {}),
+                      ...(isMobile ? styles.mobileServiceExtra : {}),
+                    }}
+                  >
+                    {service.extra}
+                  </p>
+                </div>
+
+                <span style={styles.gemOne}>◆</span>
+                <span style={styles.gemTwo}>◆</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutSection() {
+  return (
+    <section style={styles.about}>
+      <div style={styles.sectionInner}>
+        <h2 style={styles.sectionHeading}>About</h2>
+      </div>
+    </section>
+  );
+}
+
+function ServicesSection() {
+  return (
+    <section style={styles.services}>
+      <div style={styles.sectionInner}>
+        <h2 style={styles.sectionHeading}>Services</h2>
+      </div>
+    </section>
+  );
+}
+
+function FooterArea() {
+  return <section style={styles.footerArea} />;
+}
+
+export default function Page() {
+  return (
+    <main style={styles.main}>
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <ServicesSection />
+      <FooterArea />
     </main>
   );
 }
+
+const styles: Record<string, React.CSSProperties> = {
+  main: {
+    fontFamily: "'Segoe UI', Arial, sans-serif",
+    margin: 0,
+    padding: 0,
+    overflowX: "hidden",
+    backgroundColor: "#fff",
+  },
+
+  nav: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingTop: 10,
+  },
+
+  navPill: {
+    display: "flex",
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.92)",
+    borderRadius: 6,
+    padding: "7px 14px",
+    gap: 10,
+    boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+  },
+
+  navBtn: {
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    fontSize: 13.5,
+    fontWeight: 500,
+    color: "#111",
+    padding: "6px 12px",
+    borderRadius: 4,
+    display: "flex",
+    alignItems: "center",
+    whiteSpace: "nowrap",
+  },
+
+  hamburger: {
+    position: "absolute",
+    right: 20,
+    top: 14,
+    display: "flex",
+    flexDirection: "column",
+    gap: 5,
+    background: "rgba(255,255,255,0.85)",
+    border: "none",
+    borderRadius: 6,
+    padding: "10px 14px",
+    cursor: "pointer",
+  },
+
+  bar: {
+    display: "block",
+    width: 22,
+    height: 2,
+    backgroundColor: "#111",
+    borderRadius: 2,
+  },
+
+  mobileMenu: {
+    position: "absolute",
+    top: 66,
+    left: 16,
+    right: 16,
+    backgroundColor: "rgba(255,255,255,0.96)",
+    borderRadius: 8,
+    padding: "8px 0",
+    display: "flex",
+    flexDirection: "column",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.18)",
+  },
+
+  mobileNavBtn: {
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    fontSize: 15,
+    fontWeight: 500,
+    color: "#111",
+    padding: "10px 20px",
+    textAlign: "left",
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+  },
+
+  email: {
+  marginTop: "-10px",
+  marginBottom: 28,
+},
+
+emailButton: {
+  color: "#fff",
+  backgroundColor: "#0716a0",
+  border: "1px solid transparent",
+  borderRadius: 9999,
+  padding: "12px 22px",
+  fontSize: 14,
+  fontWeight: 600,
+  cursor: "pointer",
+  outline: "none",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+  transition: "all 220ms ease",
+},
+
+  hero: {
+    position: "relative",
+    width: "100%",
+    minHeight: "100vh",
+    overflow: "hidden",
+  },
+
+  heroBg: {
+    position: "absolute",
+    inset: 0,
+    backgroundColor: "oklch(97.9% 0.021 166.113)",
+  },
+
+  heroContent: {
+    position: "relative",
+    zIndex: 1,
+    minHeight: "100vh",
+    padding: "60px 6vw 60px",
+    display: "grid",
+    gridTemplateColumns: "minmax(280px, 0.85fr) minmax(520px, 1.15fr)",
+    alignItems: "center",
+    gap: 30,
+  },
+
+  tabletHeroContent: {
+    gridTemplateColumns: "1fr",
+    alignItems: "start",
+    paddingTop: 95,
+  },
+
+  mobileHeroContent: {
+    gridTemplateColumns: "1fr",
+    alignItems: "start",
+    padding: "95px 5vw 50px",
+  },
+
+  heroText: {
+    position: "relative",
+    zIndex: 4,
+    maxWidth: 760,
+  },
+
+  heroLogo: {
+    width: 280,
+    height: "auto",
+    marginBottom: 0,
+    transform: "translateY(-3.25rem)",
+  },
+
+  heroSub: {
+    marginTop: 0,
+    fontSize: "clamp(21px, 2vw, 28px)",
+    color: "#111",
+    lineHeight: 1.45,
+    fontWeight: 700,
+  },
+
+  servicesStage: {
+    position: "relative",
+    width: "100%",
+    height: 610,
+    zIndex: 2,
+  },
+
+  tabletServicesStage: {
+    height: "auto",
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+    gap: 22,
+    marginTop: 35,
+  },
+
+  mobileServicesStage: {
+    height: "auto",
+    display: "grid",
+    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    gap: 16,
+    marginTop: 30,
+  },
+
+  serviceBox: {
+    position: "absolute",
+    width: 170,
+    height: 230,
+    borderRadius: 8,
+    padding: 12,
+    color: "#111",
+    boxShadow: "0 18px 28px rgba(0,0,0,0.24)",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    cursor: "pointer",
+    transform: "translateY(0) rotate(0deg)",
+    transition:
+      "transform 260ms ease, width 260ms ease, height 260ms ease, box-shadow 260ms ease",
+  },
+
+  serviceBoxHover: {
+    width: 330,
+    height: 410,
+    transform: "translateY(-16px) rotate(0 deg)",
+    boxShadow: "0 28px 46px rgba(0,0,0,0.32)",
+    zIndex: 20,
+  },
+
+  tabletServiceBox: {
+    position: "relative",
+    inset: "auto",
+    width: "100%",
+    height: 270,
+  },
+
+  mobileServiceBox: {
+    position: "relative",
+    inset: "auto",
+    width: "100%",
+    height: 210,
+  },
+
+  innerCard: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 5,
+    backgroundColor: "rgba(255,255,255,0.78)",
+    padding: 12,
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    zIndex: 2,
+  },
+
+  serviceLabel: {
+    fontSize: 8,
+    fontWeight: 900,
+    letterSpacing: 1,
+    margin: 0,
+    opacity: 0.65,
+  },
+
+  serviceTitle: {
+    margin: "20px 0 10px",
+    fontSize: 20,
+    lineHeight: 1.05,
+    fontWeight: 900,
+  },
+
+  mobileServiceTitle: {
+    fontSize: 16,
+  },
+
+  serviceDesc: {
+    marginTop: "10",
+    fontSize: 13,
+    lineHeight: 1.25,
+    fontWeight: 700,
+    color: "rgba(0,0,0,0.66)",
+  },
+
+  mobileServiceDesc: {
+    fontSize: 10.5,
+  },
+
+  serviceExtra: {
+    margin: "10px 0 0",
+    fontSize: 12.5,
+    lineHeight: 1.35,
+    fontWeight: 650,
+    color: "rgba(0,0,0,0.72)",
+    opacity: 0,
+    maxHeight: 0,
+    overflow: "hidden",
+    transition: "opacity 220ms ease, max-height 260ms ease",
+  },
+
+  serviceExtraVisible: {
+    opacity: 1,
+    maxHeight: 100,
+  },
+
+  mobileServiceExtra: {
+    fontSize: 10.5,
+  },
+
+  gemOne: {
+    position: "absolute",
+    left: 18,
+    bottom: 18,
+    fontSize: 17,
+    color: "rgba(255,255,255,0.45)",
+    zIndex: 1,
+  },
+
+  gemTwo: {
+    position: "absolute",
+    right: 18,
+    top: 20,
+    fontSize: 12,
+    color: "rgba(255,255,255,0.35)",
+    zIndex: 1,
+  },
+
+  about: {
+    backgroundColor: "#22dd00",
+    minHeight: 160,
+    width: "100%",
+  },
+
+  services: {
+    backgroundColor: "#4aa8b8",
+    minHeight: 200,
+    width: "100%",
+  },
+
+  sectionInner: {
+    padding: "32px 5%",
+  },
+
+  sectionHeading: {
+    fontSize: 26,
+    fontWeight: 600,
+    color: "#111",
+    margin: 0,
+  },
+
+  footerArea: {
+    backgroundColor: "#fff",
+    minHeight: 500,
+    width: "100%",
+  },
+};
