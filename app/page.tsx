@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Services from "./components/Services";
 import Latest from "./components/Latest";
+import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#e4d4ac]">
@@ -25,20 +26,44 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop logo */}
-          <div className="absolute -top-[165px] right-[10px] hidden w-[180px] lg:block">
-            <Image
-              src="/images/logo.png"
-              alt="Business logo"
-              width={180}
-              height={90}
-              className="h-auto w-full object-contain"
-            />
-          </div>
+          
+{/* Portfolio and Qualifications links */}
+<nav
+  aria-label="Professional information"
+  className="absolute -top-[165px] right-[40px] z-20 hidden flex-col gap-7 lg:flex"
+>
+  <Link
+    href="/portfolio"
+    className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
+  >
+    Portfolio
+  </Link>
+
+  <Link
+    href="/qualifications"
+    className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
+  >
+    Qualifications
+  </Link>
+</nav>
+
 
           {/* Lower panel */}
           <div className="flex flex-col gap-12 px-7 pb-12 pt-[170px] md:flex-row md:items-start md:justify-between md:px-[70px] md:pt-[205px]">
             <div className="flex-1 md:pt-2">
+
+<nav
+  aria-label="Professional information mobile"
+  className="mb-8 flex flex-wrap gap-6 lg:hidden"
+>
+  <Link href="/portfolio" className="text-2xl font-medium">
+    Portfolio
+  </Link>
+  <Link href="/qualifications" className="text-2xl font-medium">
+    Qualifications
+  </Link>
+</nav>
+
               <Services />
             </div>
 
