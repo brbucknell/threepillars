@@ -1,18 +1,28 @@
 
 import Image from "next/image";
+import Link from "next/link";
+
 import Header from "./components/Header";
 import Services from "./components/Services";
 import Latest from "./components/Latest";
-import Link from "next/link";
+import WebDevelopmentTimeline from "./components/WebDevelopmentTimeline";
+import DataScienceSection from "./components/DataScienceSection";
+import ITSupportSection from "./components/ITSupportSection";
+
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#e4d4ac]">
+    <main
+      id="home"
+      className="min-h-screen overflow-x-hidden bg-[#e4d4ac]"
+    >
       <Header />
 
+      {/* Home / Introduction */}
       <section className="relative mx-auto mt-2 w-full max-w-[1040px] px-5 pb-16 md:px-0">
         {/* Main content panel */}
         <div className="relative mt-[220px] min-h-[410px] bg-[#e5e2d6] md:mt-[215px] md:min-h-[400px]">
-          {/* Office photograph overlapping panel */}
+
+          {/* Office photograph */}
           <div className="absolute -top-[215px] left-1/2 z-10 w-[92%] -translate-x-1/2 md:left-[70px] md:w-[630px] md:translate-x-0">
             <div className="relative aspect-[1.78] w-full">
               <Image
@@ -26,43 +36,49 @@ export default function Home() {
             </div>
           </div>
 
-          
-{/* Portfolio and Qualifications links */}
-<nav
-  aria-label="Professional information"
-  className="absolute -top-[165px] right-[40px] z-20 hidden flex-col gap-7 lg:flex"
->
-  <Link
-    href="/portfolio"
-    className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
-  >
-    Portfolio
-  </Link>
+          {/* Portfolio and Qualifications - Desktop */}
+          <nav
+            aria-label="Professional information"
+            className="absolute -top-[165px] right-[40px] z-20 hidden flex-col gap-7 lg:flex"
+          >
+            <Link
+              href="/portfolio"
+              className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
+            >
+              Portfolio
+            </Link>
 
-  <Link
-    href="/qualifications"
-    className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
-  >
-    Qualifications
-  </Link>
-</nav>
-
+            <Link
+              href="/qualifications"
+              className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
+            >
+              Qualifications
+            </Link>
+          </nav>
 
           {/* Lower panel */}
           <div className="flex flex-col gap-12 px-7 pb-12 pt-[170px] md:flex-row md:items-start md:justify-between md:px-[70px] md:pt-[205px]">
             <div className="flex-1 md:pt-2">
 
-<nav
-  aria-label="Professional information mobile"
-  className="mb-8 flex flex-wrap gap-6 lg:hidden"
->
-  <Link href="/portfolio" className="text-2xl font-medium">
-    Portfolio
-  </Link>
-  <Link href="/qualifications" className="text-2xl font-medium">
-    Qualifications
-  </Link>
-</nav>
+              {/* Portfolio and Qualifications - Mobile */}
+              <nav
+                aria-label="Professional information mobile"
+                className="mb-8 flex flex-wrap gap-6 lg:hidden"
+              >
+                <Link
+                  href="/portfolio"
+                  className="text-2xl font-medium"
+                >
+                  Portfolio
+                </Link>
+
+                <Link
+                  href="/qualifications"
+                  className="text-2xl font-medium"
+                >
+                  Qualifications
+                </Link>
+              </nav>
 
               <Services />
             </div>
@@ -73,6 +89,17 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Web Development */}
+      <section id="web-development" className="scroll-mt-20">
+        <WebDevelopmentTimeline />
+      </section>
+
+      {/* Data Science & AI */}
+      <DataScienceSection />
+
+      {/* IT Support */}
+      <ITSupportSection />
     </main>
   );
 }
