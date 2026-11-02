@@ -19,6 +19,7 @@ export default function Home() {
 
       {/* Home / Introduction */}
       <section className="relative mx-auto mt-2 w-full max-w-[1040px] px-5 pb-16 md:px-0">
+
         {/* Main content panel */}
         <div className="relative mt-[220px] min-h-[410px] bg-[#e5e2d6] md:mt-[215px] md:min-h-[400px]">
 
@@ -58,6 +59,8 @@ export default function Home() {
 
           {/* Lower panel */}
           <div className="flex flex-col gap-12 px-7 pb-12 pt-[170px] md:flex-row md:items-start md:justify-between md:px-[70px] md:pt-[205px]">
+
+            {/* Left column */}
             <div className="min-w-0 flex-1 md:pt-2">
 
               {/* Portfolio and Qualifications - Mobile */}
@@ -83,29 +86,27 @@ export default function Home() {
               {/* Services */}
               <Services />
 
-              
-{/* Contact Information */}
-<div className="mt-8 text-black">
-  <h3 className="text-[26px] font-medium tracking-tight">
-    Contact:
-  </h3>
+              {/* Contact Information */}
+              <div className="mt-8 text-black">
+                <h3 className="text-[26px] font-medium tracking-tight">
+                  Contact:
+                </h3>
 
-  <a
-    href="mailto:bryan@threepillars.dev"
-    className="mt-2 ml-[85px] inline-block text-[18px] text-black transition-colors duration-200 hover:text-[#365c74] hover:underline"
-  >
-    bryan@threepillars.dev
-  </a>
-</div>
-
+                <a
+                  href="mailto:bryan@threepillars.dev"
+                  className="mt-2 ml-6 inline-block break-all text-[18px] text-black transition-colors duration-200 hover:text-[#365c74] hover:underline sm:ml-[85px]"
+                >
+                  bryan@threepillars.dev
+                </a>
               </div>
 
             </div>
 
-            {/* Latest */}
+            {/* Right column - Latest */}
             <div className="md:-mt-[190px] md:ml-8 md:w-[200px] md:shrink-0">
               <Latest />
             </div>
+
           </div>
         </div>
       </section>
