@@ -58,7 +58,7 @@ export default function Home() {
 
           {/* Lower panel */}
           <div className="flex flex-col gap-12 px-7 pb-12 pt-[170px] md:flex-row md:items-start md:justify-between md:px-[70px] md:pt-[205px]">
-            <div className="flex-1 md:pt-2">
+            <div className="min-w-0 flex-1 md:pt-2">
 
               {/* Portfolio and Qualifications - Mobile */}
               <nav
@@ -80,9 +80,29 @@ export default function Home() {
                 </Link>
               </nav>
 
+              {/* Services */}
               <Services />
+
+              
+{/* Contact Information */}
+<div className="mt-8 text-black">
+  <h3 className="text-[26px] font-medium tracking-tight">
+    Contact:
+  </h3>
+
+  <a
+    href="mailto:bryan@threepillars.dev"
+    className="mt-2 ml-[85px] inline-block text-[18px] text-black transition-colors duration-200 hover:text-[#365c74] hover:underline"
+  >
+    bryan@threepillars.dev
+  </a>
+</div>
+
+              </div>
+
             </div>
 
+            {/* Latest */}
             <div className="md:-mt-[190px] md:ml-8 md:w-[200px] md:shrink-0">
               <Latest />
             </div>
@@ -101,21 +121,6 @@ export default function Home() {
       {/* IT Support */}
       <ITSupportSection />
 
-{/* Contact Information */}
-<div className="mt-8 text-center">
-  <h3 className="text-2xl font-semibold text-black">
-    Contact:
-  </h3>
-
-  <a
-    href="mailto:bryan@threepillars.dev"
-    className="mt-3 inline-block text-lg text-black
-               hover:underline transition-all"
-  >
-    bryan@threepillars.dev
-  </a>
-</div>
-      
     </main>
   );
 }
