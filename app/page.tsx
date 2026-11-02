@@ -100,6 +100,22 @@ export default function Home() {
 
       {/* IT Support */}
       <ITSupportSection />
+
+{/* Contact Information */}
+<div className="mt-8 text-center">
+  <h3 className="text-2xl font-semibold text-black">
+    Contact:
+  </h3>
+
+  <a
+    href="mailto:bryan@threepillars.dev"
+    className="mt-3 inline-block text-lg text-black
+               hover:underline transition-all"
+  >
+    bryan@threepillars.dev
+  </a>
+</div>
+      
     </main>
   );
 }
