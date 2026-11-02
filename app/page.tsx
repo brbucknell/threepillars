@@ -5,6 +5,7 @@ import Link from "next/link";
 import Header from "./components/Header";
 import Services from "./components/Services";
 import Latest from "./components/Latest";
+import ContactForm from "./components/ContactForm";
 import WebDevelopmentTimeline from "./components/WebDevelopmentTimeline";
 import DataScienceSection from "./components/DataScienceSection";
 import ITSupportSection from "./components/ITSupportSection";
