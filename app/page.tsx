@@ -93,12 +93,20 @@ export default function Home() {
                   Contact:
                 </h3>
 
-                <a
-                  href="mailto:bryan@threepillars.dev"
-                  className="mt-2 ml-6 inline-block break-all text-[18px] text-black transition-colors duration-200 hover:text-[#365c74] hover:underline sm:ml-[85px]"
-                >
-                  bryan@threepillars.dev
-                </a>
+                <div className="mt-2 ml-6 flex flex-col items-start gap-2 sm:ml-[85px]">
+
+                  {/* Popup Contact Form */}
+                  <ContactForm />
+
+                  {/* Email Address */}
+                  <a
+                    href="mailto:bryan@threepillars.dev"
+                    className="break-all text-[18px] text-black transition-colors duration-200 hover:text-[#365c74] hover:underline"
+                  >
+                    bryan@threepillars.dev
+                  </a>
+
+                </div>
               </div>
 
             </div>
