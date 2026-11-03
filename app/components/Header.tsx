@@ -20,12 +20,13 @@ export default function Header() {
       <header className="relative z-30 mx-auto flex w-full max-w-[1040px] items-center justify-between px-5 py-8 md:px-0">
 
         {/* Business Name */}
-        <Link
-          href="/"
-          className="font-[family-name:var(--font-handwriting)] text-5xl font-normal text-black md:text-[64px]"
-        >
-       Outlier
-        </Link>
+       {/* Business Name */}
+<Link
+  href="/"
+  className={`${bodoni.className} text-5xl font-normal italic tracking-[-0.04em] text-black md:text-[64px]`}
+>
+  Outlier
+</Link>
       </header>
 
       {/* Fixed Hamburger Menu */}
