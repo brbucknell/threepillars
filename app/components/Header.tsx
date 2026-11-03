@@ -3,7 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { Bodoni_Moda } from "next/font/google";
 
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic"],
+  display: "swap",
+});
 const navigation = [
   { label: "Home", href: "/#home" },
   { label: "Web Development", href: "/#web-development" },
@@ -21,6 +28,7 @@ export default function Header() {
 
         {/* Business Name */}
        {/* Business Name */}
+{/* Business Name */}
 <Link
   href="/"
   className={`${bodoni.className} text-5xl font-normal italic tracking-[-0.04em] text-black md:text-[64px]`}
