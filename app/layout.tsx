@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 import { Great_Vibes } from "next/font/google";
 import "./globals.css";
 
+import { Bodoni_Moda } from "next/font/google";
+
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["400", "500"],
+});
+
 const handwriting = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
