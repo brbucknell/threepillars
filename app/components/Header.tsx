@@ -24,7 +24,7 @@ export default function Header() {
           href="/"
           className="font-[family-name:var(--font-handwriting)] text-5xl font-normal text-black md:text-[64px]"
         >
-        Anomaly
+       Outlier
         </Link>
       </header>
 
