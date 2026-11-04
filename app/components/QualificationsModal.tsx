@@ -115,13 +115,13 @@ export default function QualificationsModal() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="cursor-pointer text-left text-inherit transition-opacity hover:opacity-60"
-      >
-        Qualifications
-      </button>
+     <button
+  type="button"
+  onClick={() => setOpen(true)}
+  className="cursor-pointer text-[30px] font-normal text-black transition-opacity hover:opacity-60"
+>
+  Qualifications
+</button>
 
       {open && (
         <div
