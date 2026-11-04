@@ -40,19 +40,19 @@ export default function Home() {
           </div>
 
           {/* Portfolio and Qualifications - Desktop */}
-          <nav
-            aria-label="Professional information"
-            className="absolute -top-[165px] right-[40px] z-20 hidden flex-col gap-7 lg:flex"
-          >
-            <Link
-              href="/portfolio"
-              className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
-            >
-              Portfolio
-            </Link>
-        <QualificationsModal />
-            
-          </nav>
+         <nav
+  aria-label="Professional information"
+  className="absolute -top-[165px] right-[40px] z-20 hidden flex-col items-start gap-7 lg:flex"
+>
+  <Link
+    href="/portfolio"
+    className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
+  >
+    Portfolio
+  </Link>
+
+  <QualificationsModal />
+</nav>
 
           {/* Lower panel */}
           <div className="flex flex-col gap-12 px-7 pb-12 pt-[170px] md:flex-row md:items-start md:justify-between md:px-[70px] md:pt-[205px]">
