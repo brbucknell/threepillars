@@ -9,6 +9,7 @@ import ContactForm from "./components/ContactForm";
 import WebDevelopmentTimeline from "./components/WebDevelopmentTimeline";
 import DataScienceSection from "./components/DataScienceSection";
 import ITSupportSection from "./components/ITSupportSection";
+import QualificationsModal from "./components/QualificationsModal";
 
 export default function Home() {
   return (
@@ -49,13 +50,8 @@ export default function Home() {
             >
               Portfolio
             </Link>
-
-            <Link
-              href="/qualifications"
-              className="text-[32px] font-medium tracking-tight text-black transition-colors duration-200 hover:text-[#365c74]"
-            >
-              Qualifications
-            </Link>
+        <QualificationsModal />
+            
           </nav>
 
           {/* Lower panel */}
