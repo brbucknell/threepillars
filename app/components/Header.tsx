@@ -31,9 +31,9 @@ export default function Header() {
 {/* Business Name */}
 <Link
   href="/"
-  className={`${bodoni.className} text-5xl font-normal italic tracking-[-0.04em] text-black md:text-[64px]`}
+  className={`${cormorant.className} text-[58px] font-medium italic tracking-[-0.045em] text-black md:text-[76px]`}
 >
-  Three PIllars
+  Three Pillars
 </Link>
       </header>
 
