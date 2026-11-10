@@ -5,6 +5,14 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Bodoni_Moda } from "next/font/google";
 
+import { Cormorant_Garamond } from "next/font/google";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+});
+
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   weight: ["400"],
