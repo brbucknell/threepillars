@@ -33,7 +33,7 @@ export default function Header() {
   href="/"
   className={`${bodoni.className} text-5xl font-normal italic tracking-[-0.04em] text-black md:text-[64px]`}
 >
-  Outlier
+  Three PIllars
 </Link>
       </header>
 
